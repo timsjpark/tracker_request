@@ -6,7 +6,7 @@ class I took in the Fall of 2015.
 
 Team Members:
 
-  Matt Michnal
+* Matt Michnal
 
 Features:
 
