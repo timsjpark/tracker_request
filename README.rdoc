@@ -9,7 +9,7 @@ Team Members:
 * Matt Michnal
 * Sue Uyetake
 * Danny Debevec
-
+* Tim Park
 * Richard Beasley
 
 Features:
