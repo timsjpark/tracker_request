@@ -8,6 +8,8 @@ Team Members:
 
 * Matt Michnal
 
+* Richard Beasley
+
 Features:
 
   TBD
