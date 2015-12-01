@@ -1,4 +1,3 @@
-
 class Encrypt_Decrypt
 
   def initialize
