@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'console/index'
+  get 'console' => 'console#index'
   get 'console/profile'
   get 'console/statistics'
 
