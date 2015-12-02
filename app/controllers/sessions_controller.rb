@@ -17,9 +17,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if user = current_user
+    if @user = current_user
       session.delete(:id)
-      redirect_to root_path, notice: "#{user.email} has been logged out"
+      redirect_to root_path, notice: "#{@user.username.titleize} has been logged out"
     end
   end
 
