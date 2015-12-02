@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
   get 'console/index'
-
   get 'console/profile'
-
   get 'console/statistics'
 
   # The priority is based upon order of creation: first created -> highest priority.
