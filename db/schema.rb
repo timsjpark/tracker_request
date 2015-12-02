@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20151201065506) do
     t.string   "last_name"
     t.string   "email"
     t.string   "avatar_url"
-    t.integer  "api_key"
+    t.string   "api_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
