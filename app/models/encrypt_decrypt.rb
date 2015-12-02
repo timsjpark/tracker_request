@@ -16,16 +16,13 @@ class Encrypt_Decrypt
   private
   def salt_generator
     salt = ENV['SALT_VALUE']
-    salt
   end
 
   def key_generator
     key = ActiveSupport::KeyGenerator.new(passphrase_value).generate_key(salt_generator)
-    key
   end
 
   def passphrase_value
     passphrase = ENV['PASS_PHRASE']
-    passphrase
   end
 end
