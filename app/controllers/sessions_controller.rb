@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
         notice: "Welcome back #{@user.username.titleize}"
     else
       @user.save
+      session[:id] = @user.id
       redirect_to console_path,
         notice: "Thank you for using our console #{@user.username.titleize}"
     end
