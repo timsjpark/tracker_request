@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'bootstrap-generators'
+#Gem for Font Awesome to be included in the project
+gem 'font-awesome-sass', '~> 4.4.0'
 
 ruby "2.2.3"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -13,7 +15,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
 
 gem 'dotenv-rails', :groups => [:development, :test]
 

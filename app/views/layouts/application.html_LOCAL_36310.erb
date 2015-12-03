@@ -28,10 +28,8 @@
         <span class="icon-bar"></span>
       </button>
       <% if current_user %>
-        <%= image_tag("50px-white.png") %>
         <%= link_to "Tracker Request", console_path, class: "navbar-brand" %>
       <% else %>
-        <%= image_tag("50px-white.png") %>
         <%= link_to "Tracker Request", root_path, class: "navbar-brand" %>
       <% end %>
     </div>
@@ -49,7 +47,7 @@
     </div>
   </div>
 </nav>
-<div class="flash-content">
+<div class="container">
   <% flash.each do |name, msg| %>
     <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
       <button type="button" class="close" data-dismiss="alert">
@@ -57,8 +55,8 @@
       <%= msg %>
     <% end %>
   <% end %>
+
+  <%= yield %>
 </div>
-    
-    <%= yield %>
-  </body>
+</body>
 </html>

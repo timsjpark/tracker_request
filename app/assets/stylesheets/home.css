@@ -10,13 +10,17 @@ body {
     height: 400px;
 }
 .navbar-inverse{
-    background-color: #3B5998;
+    background-color: #27c667;
+    height: 60px;
+}
+.navbar-nav{
+    float: right;
 }
 nav.navbar.navbar-inverse.navbar-fixed-top a{
     color: #fff;
 }
 .flash-content{
-    max-width: 80%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -27,7 +31,32 @@ nav.navbar.navbar-inverse.navbar-fixed-top a{
 }
 .home-page.jumbotron{
     border-radius: 0px;
-    background-image: url('mountain-background.jpg');
+    background-image: url('river-background.png');
     background-size: 100%;
     background-repeat: no-repeat;
+}
+.flash-content div.alert{
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+.home-page.jumbotron div.container{
+    background: #e6e6e6;
+    border-radius: 20px;
+    opacity: .9;
+    text-align: center;
+}
+.main-button{
+    color: #fff;
+    background-color: #27c667;
+    border-color: grey;
+    box-shadow: 2px 2px 2px grey;
+    font-size: 22px;
+    padding: 25px 50px;
+}
+.main-button:hover{
+    color: #000;
+    background-color: #1f9b51; 
+}
+.feature-img img{
+    max-width: 100%;
 }

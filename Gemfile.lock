@@ -89,6 +89,8 @@ GEM
     faraday_middleware (0.10.0)
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.10)
+    font-awesome-sass (4.4.0)
+      sass (>= 3.2)
     formatador (0.2.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -300,6 +302,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   faker
+  font-awesome-sass (~> 4.4.0)
   guard-bundler
   guard-rspec
   jbuilder (~> 2.0)
