@@ -2,7 +2,7 @@ class ConsoleController < ApplicationController
   before_filter :login_required
 
   def index
-    Resque.enqueue(RepoImportWorker)
+    Resque.enqueue(RepoImportWorker, current_user)
     #user_profile = User.find(session[:id])
   end
 
