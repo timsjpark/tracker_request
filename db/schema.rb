@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201065506) do
+ActiveRecord::Schema.define(version: 20151204015409) do
+
+  create_table "repositories", force: :cascade do |t|
+    t.integer  "repo_id"
+    t.string   "repo_name"
+    t.integer  "number_of_forks"
+    t.boolean  "forked"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "repositories", ["user_id"], name: "index_repositories_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
