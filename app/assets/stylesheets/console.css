@@ -1,0 +1,18 @@
+body{
+    background: #e9eaed;
+}
+.col-md-4.console-panel{
+    border: 1px solid #e3e3e3;
+    margin: 4px;
+    width: 32%;
+    background: #fff;
+    border-radius: 4px;
+}
+.console-row{
+    margin-top: 50px;
+}
+@media screen and (max-width: 992px) {
+    .col-md-4.console-panel{
+        width: inherit;
+    }
+}
