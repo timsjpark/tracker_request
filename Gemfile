@@ -4,6 +4,12 @@ gem 'bootstrap-generators'
 #Gem for Font Awesome to be included in the project
 gem 'font-awesome-sass', '~> 4.4.0'
 
+group :development do
+  gem 'foreman'
+end
+gem 'resque', require: 'resque/server'
+gem 'resque-scheduler', '2.5.5', :require => 'resque_scheduler/server'
+
 ruby "2.2.3"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
