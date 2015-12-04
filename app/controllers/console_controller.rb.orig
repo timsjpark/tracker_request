@@ -1,0 +1,26 @@
+class ConsoleController < ApplicationController
+  before_filter :login_required
+
+  def index
+<<<<<<< f98130e2e36b2dda723b83f4f813fb99d0e9a389
+    background_jobs
+    #user_profile = User.find(session[:id])
+=======
+    @user = User.find(session[:id])
+>>>>>>> Modify console view and controller to provide user profile info
+  end
+
+  def profile
+  end
+
+  def statistics
+  end
+
+  private 
+  def background_jobs
+    Resque.enqueue(RepoImportWorker, current_user.id)
+    Resque.enqueue(BranchImportWorker, current_user.id)
+    Resque.enqueue(PullRequestImportWorker, current_user.id)
+    Resque.enqueue(PullRequestCommentImportWorker, current_user.id)
+  end
+end
