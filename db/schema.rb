@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204030746) do
+ActiveRecord::Schema.define(version: 20151204031806) do
 
   create_table "branches", force: :cascade do |t|
     t.string   "branch_name"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20151204030746) do
   end
 
   add_index "branches", ["repository_id"], name: "index_branches_on_repository_id"
+
+  create_table "commits", force: :cascade do |t|
+    t.string   "author"
+    t.string   "commit_message"
+    t.integer  "branch_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "commits", ["branch_id"], name: "index_commits_on_branch_id"
 
   create_table "pull_request_comments", force: :cascade do |t|
     t.string   "content_text"
