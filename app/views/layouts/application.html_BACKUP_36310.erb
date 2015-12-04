@@ -18,6 +18,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<<<<<<< 7d373b52670cd593b35af328c308ffafb083acd9
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -27,13 +28,36 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-logo pull-left">
-        <%= image_tag("50px-white.png") %>
-      </a>
       <% if current_user %>
         <%= link_to "Tracker Request", console_path, class: "navbar-brand" %>
       <% else %>
         <%= link_to "Tracker Request", root_path, class: "navbar-brand" %>
+=======
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Tracker Request", root_path, class: "navbar-brand" %>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "About", about_path %></li>
+          <li><%= link_to "Contact", contact_path %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div class="flash-content">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <%= msg %>
+>>>>>>> Adding style to the home page
       <% end %>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
@@ -50,16 +74,22 @@
     </div>
   </div>
 </nav>
-<div class="flash-content">
+<div class="container">
   <% flash.each do |name, msg| %>
     <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
       <button type="button" class="close" data-dismiss="alert">
         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
       <%= msg %>
     <% end %>
+<<<<<<< 7d373b52670cd593b35af328c308ffafb083acd9
   <% end %>
+
+  <%= yield %>
 </div>
-    
+=======
+    </div>
+
     <%= yield %>
-  </body>
+>>>>>>> Adding style to the home page
+</body>
 </html>
