@@ -16,3 +16,9 @@
 
 @import "font-awesome-sprockets.css";
 @import "font-awesome.css";
+
+@media(min-width: 768px){
+    .navbar-nav > li > a{
+        padding-top: 20px;
+    }
+}

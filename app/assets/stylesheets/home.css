@@ -67,3 +67,10 @@ a.navbar-logo.pull-left{
     padding-top: 5px;
     padding-right: 10px;
 }
+h2.header-icons{
+    text-align: center;
+    font-size: 72px;
+}
+.header-info p{
+    text-align: center;
+}

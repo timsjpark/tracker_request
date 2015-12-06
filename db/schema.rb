@@ -34,7 +34,8 @@ ActiveRecord::Schema.define(version: 20151204031806) do
   add_index "commits", ["branch_id"], name: "index_commits_on_branch_id"
 
   create_table "pull_request_comments", force: :cascade do |t|
-    t.string   "content_text"
+    t.integer  "pr_comment_id"
+    t.text     "content_text"
     t.integer  "pull_request_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -43,8 +44,11 @@ ActiveRecord::Schema.define(version: 20151204031806) do
   add_index "pull_request_comments", ["pull_request_id"], name: "index_pull_request_comments_on_pull_request_id"
 
   create_table "pull_requests", force: :cascade do |t|
+    t.integer  "pr_id"
     t.string   "pr_state"
     t.string   "pr_base_commit"
+    t.string   "pr_title"
+    t.text     "pr_body"
     t.integer  "repository_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
