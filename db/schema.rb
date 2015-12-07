@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20151204031806) do
   create_table "repositories", force: :cascade do |t|
     t.integer  "repo_id"
     t.string   "repo_name"
+    t.string   "repo_full_name"
     t.integer  "number_of_forks"
     t.boolean  "forked"
     t.integer  "user_id"
