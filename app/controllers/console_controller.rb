@@ -3,7 +3,7 @@ class ConsoleController < ApplicationController
 
   def index
     background_jobs
-    #user_profile = User.find(session[:id])
+    @user = User.find(session[:id])
   end
 
   def profile

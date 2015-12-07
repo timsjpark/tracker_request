@@ -1,9 +1,8 @@
 <div class="container">
       <div class="row console-row">
         <div class="col-md-4 console-panel">
-          <h3>Profile</h3>
-          <hr>
-          <p>           <i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <h3><%= @user.username %></h3>
+          <%= image_tag(@user.avatar_url) %>
         </div>
         <div class="col-md-4 console-panel">
           <h3>Projects</h3>
