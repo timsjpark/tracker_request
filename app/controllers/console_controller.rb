@@ -5,7 +5,7 @@ class ConsoleController < ApplicationController
     background_jobs
     @user = User.find(session[:id])
     @repositories = @user.repositories
-    @repository = @user.repositories.find_by(repo_name: 'vim-tabtastic')
+    @repository = @user.repositories.find_by(repo_name: 'davinci_motors')
   end
 
   def profile
