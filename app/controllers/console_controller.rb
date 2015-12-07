@@ -17,6 +17,6 @@ class ConsoleController < ApplicationController
     Resque.enqueue(RepoImportWorker, current_user.id)
     Resque.enqueue(BranchImportWorker, current_user.id)
     Resque.enqueue(PullRequestImportWorker, current_user.id)
-    #Resque.enqueue(PullRequestCommentImportWorker, current_user.id)
+    Resque.enqueue(PullRequestCommentImportWorker, current_user.id)
   end
 end
