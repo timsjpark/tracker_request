@@ -42,7 +42,7 @@
         <li><%= link_to "Contact", contact_path %></li>
         <% if current_user %>
             <li><%= link_to "#{current_user.username.titleize}", console_path %></li>
-            <li><%= link_to "Profile", console_profile_path %></li>
+            <li><%= link_to "Profile", "/console/profile" %></li>
             <li><%= link_to raw("Logout <i class='fa fa-sign-out'></i>"), logout_path, method: :delete %></li>
         <% else %>
             <li><%= link_to raw("Signin <i class='fa fa-sign-in'></i>"), '/auth/github' %></li>

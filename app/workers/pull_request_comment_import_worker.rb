@@ -18,7 +18,7 @@ class PullRequestCommentImportWorker
             end
           end
       end
-      Resque.enqueue_in(15.seconds, PullRequestCommentImportWorker, current_user_id)
+      Resque.enqueue_in(40.seconds, PullRequestCommentImportWorker, current_user_id)
     end
 
     def self.pull_request_comment_params(pull_request_comment_info,repo_info)

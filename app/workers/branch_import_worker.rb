@@ -19,7 +19,7 @@ class BranchImportWorker
           end
         end
       end
-      Resque.enqueue_in(10.seconds, BranchImportWorker, current_user_id)
+      Resque.enqueue_in(20.seconds, BranchImportWorker, current_user_id)
     end
 
     def self.branch_params(branch_info,repo_info)

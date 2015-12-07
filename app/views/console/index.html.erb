@@ -19,10 +19,17 @@
     <div class="col-md-4 console-panel">
       <h3 class="panel-title github-title">Current Status</h3>
       <div class="list-group">
-        <li class="list-group-item"><h4><%= @repository.repo_name %></h4></li>
-        <li class="list-group-item">ID: <%= @repository.repo_id %></li>
-        <li class="list-group-item">Number of forks: <%= @repository.number_of_forks %></li>
-        <li class="list-group-item">Forked: <%= @repository.forked %></li>
+        <% if @repositories.blank? == false %>
+          <li class="list-group-item"><h4><%= @repository.repo_name %></h4></li>
+          <li class="list-group-item">ID: <%= @repository.repo_id %></li>
+          <li class="list-group-item">Number of forks: <%= @repository.number_of_forks %></li>
+          <li class="list-group-item">Forked: <%= @repository.forked %></li>
+        <% else %>
+          <li class="list-group-item"><h4><%= "No Repository Selected" %></h4></li>
+          <li class="list-group-item">ID: <%= "No Repository Selected" %></li>
+          <li class="list-group-item">Number of forks: <%= "No Repository Selected" %></li>
+          <li class="list-group-item">Forked: <%= "No Repository Selected" %></li>
+        <% end %>
       </div>
   </div>
 

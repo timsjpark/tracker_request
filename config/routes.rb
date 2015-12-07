@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   get 'console' => 'console#index'
-  get 'console/profile'
+  get 'console/profile' => 'console#profile', :as => :user
   get 'console/statistics'
 end
