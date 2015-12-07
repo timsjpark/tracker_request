@@ -4,6 +4,8 @@ class ConsoleController < ApplicationController
   def index
     background_jobs
     @user = User.find(session[:id])
+    @repositories = @user.repositories
+
   end
 
   def profile
