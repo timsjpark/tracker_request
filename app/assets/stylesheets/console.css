@@ -19,6 +19,10 @@ body{
     background: #21759B;
     color: #fff;
 }
+.list-group-item:first-child{
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
 .col-md-4.console-panel{
     width: 32%;
 }

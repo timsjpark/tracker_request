@@ -17,21 +17,18 @@
       </div> 
     </div>
     <div class="col-md-4 console-panel">
-      <h3>Current Status</h3>
-      <hr>
-      <li><h4><%= @repository.repo_name %></h4></li>
-      <li>ID: <%= @repository.repo_id %></li>
-      <li>Number of forks: <%= @repository.number_of_forks %></li>
-      <li>Forked: <%= @repository.forked %></li>
-      <!--<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta-->
-      <!--felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum-->
-      <!--massa justo sit amet risus.</p>-->
-    </div>
+      <h3 class="panel-title github-title">Current Status</h3>
+      <div class="list-group">
+        <li class="list-group-item"><h4><%= @repository.repo_name %></h4></li>
+        <li class="list-group-item">ID: <%= @repository.repo_id %></li>
+        <li class="list-group-item">Number of forks: <%= @repository.number_of_forks %></li>
+        <li class="list-group-item">Forked: <%= @repository.forked %></li>
+      </div>
   </div>
 
   <!-- Second Row of console panels -->
   <div class="row console-row">
-    <div class="col-md-6 console-panel">
+    <div class="col-md-6 console-panel" style="clear: both;">
       <h2 class="panel-title tracker-title">Heading</h2>
       <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
         commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
