@@ -19,6 +19,7 @@ class RepoImportWorker
           repo.update(repo_params(repo_info,current_user_id))
         end
       end   
+      Resque.enqueue_in(5.seconds, RepoImportWorker, current_user_id)
     end
 
     def self.repo_params(repo_info,current_user_id)
