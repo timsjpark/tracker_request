@@ -6,6 +6,18 @@ body{
     margin: 4px;
     background: #fff;
     box-shadow: 2px 2px #e3e3e3;
+    padding: 0px;
+}
+.console-panel .list-group{
+    margin-bottom: 0px;
+}
+.console-panel .list-group-item{
+    width: 100%;
+    text-align: left;
+}
+.console-panel .list-group-item:hover{
+    background: #21759B;
+    color: #fff;
 }
 .col-md-4.console-panel{
     width: 32%;
@@ -18,6 +30,9 @@ body{
 }
 .console-panel:hover{
     box-shadow: 6px 6px #e3e3e3;
+}
+.console-panel p{
+    padding: 10px;
 }
 .console-row{
     margin-top: 50px;
@@ -32,4 +47,54 @@ body{
     .col-md-3.console-panel{
         width: inherit;
     }
+}
+.col-md-4.console-panel.profile-panel{
+    padding: 0px;
+}
+.col-md-4.console-panel.profile-panel span{
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.col-md-4.console-panel.profile-panel span:last-of-type{
+    padding-bottom: 20px;
+}
+.profile-panel img{
+    max-width: 150px;
+    border-radius: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.number-panel{
+    padding: 0px;
+}
+.number-panel div.col-md-6{
+    padding: 0px;
+}
+.number-panel div.col-md-6 p{
+    font-size: 42px;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+}
+.panel-title{
+    margin: 0px;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 5px;
+    color: #fff;
+    border-bottom: 1px solid #000;
+    font-size: 24px;
+}
+.tracker-title{
+    background: #176d63;
+}
+.github-title{
+    background: #5B2A4D;
+}
+.github-title.split{
+    border-left: 1px solid #efefef;
 }

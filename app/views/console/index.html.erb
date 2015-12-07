@@ -1,16 +1,20 @@
 <div class="container">
   <div class="row console-row">
-    <div class="col-md-4 console-panel">
-      <h3><%= @user.username %></h3>
-      <hr>
+    <div class="col-md-4 console-panel profile-panel">
+      <h3 class="panel-title tracker-title"><%= @user.username.titleize %></h3>
       <%= image_tag(@user.avatar_url) %>
+      <span>Welcome <%= @user.first_name %> <%= @user.last_name %></span>
+      <span><%= link_to "#{@user.email}", console_path %></span>
     </div>
-    <div class="col-md-4 console-panel">
-      <h3>Repositories</h3>
-      <hr>
-      <% @repositories.each do |repo| %>
-          <li><%= repo.repo_name %></li>
-      <% end %>
+    <div class="col-md-4 console-panel number-panel">
+      <div class="col-md-6" >
+        <h3 class="panel-title tracker-title">Stories:</h3>
+        <p><i class="fa fa-book"></i> 0</p>
+      </div>
+      <div class="col-md-6">
+        <h3 class="panel-title github-title split">Repositories:</h3>
+        <p><i class="fa fa-code-fork"></i> <%= @repositories.count %></p>
+      </div> 
     </div>
     <div class="col-md-4 console-panel">
       <h3>Current Status</h3>
@@ -28,47 +32,42 @@
   <!-- Second Row of console panels -->
   <div class="row console-row">
     <div class="col-md-6 console-panel">
-      <h2>Heading</h2>
-      <hr>
+      <h2 class="panel-title tracker-title">Heading</h2>
       <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
         commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
         magna mollis euismod. Donec sed odio dui. </p>
     </div>
     <div class="col-md-6 console-panel">
-      <h2>Heading</h2>
-      <hr>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec
-        sed odio dui. </p>
-    </div>
+      <h3 class="panel-title github-title">Please select a Repository to work on:</h3>
+      <div class="list-group">
+        <% @repositories.each do |repo| %>
+            <button type="button" class="list-group-item"><%= repo.repo_name %></button>
+        <% end %>
+      </div>
   </div>
 
 
   <div class="row console-row">
     <div class="col-md-3 console-panel">
-      <h2>Heading</h2>
-      <hr>
+      <h3 class="panel-title tracker-title">Heading</h3>
       <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
         commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
         magna mollis euismod. Donec sed odio dui. </p>
     </div>
     <div class="col-md-3 console-panel">
-      <h2>Heading</h2>
-      <hr>
+      <h3 class="panel-title tracker-title">Heading</h3>
       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
         condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec
         sed odio dui. </p>
     </div>
     <div class="col-md-3 console-panel">
-      <h2>Heading</h2>
-      <hr>
+      <h3 class="panel-title github-title">Heading</h3>
       <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
         commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
         magna mollis euismod. Donec sed odio dui. </p>
     </div>
     <div class="col-md-3 console-panel">
-      <h2>Heading</h2>
-      <hr>
+      <h3 class="panel-title github-title">Heading</h3>
       <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
         commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
         magna mollis euismod. Donec sed odio dui. </p>
@@ -77,15 +76,13 @@
 
   <div class="row console-row">
     <div class="col-md-6 console-panel">
-      <h2>Heading</h2>
-      <hr>
+      <h3 class="panel-title tracker-title">Heading</h3>
       <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
         commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
         magna mollis euismod. Donec sed odio dui. </p>
     </div>
     <div class="col-md-6 console-panel">
-      <h2>Heading</h2>
-      <hr>
+      <h3 class="panel-title github-title">Heading</h3>
       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
         condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec
         sed odio dui. </p>
