@@ -15,9 +15,13 @@
     <div class="col-md-4 console-panel">
       <h3>Current Status</h3>
       <hr>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta
-        felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-        massa justo sit amet risus.</p>
+      <li><h4><%= @repository.repo_name %></h4></li>
+      <li>ID: <%= @repository.repo_id %></li>
+      <li>Number of forks: <%= @repository.number_of_forks %></li>
+      <li>Forked: <%= @repository.forked %></li>
+      <!--<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta-->
+      <!--felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum-->
+      <!--massa justo sit amet risus.</p>-->
     </div>
   </div>
 

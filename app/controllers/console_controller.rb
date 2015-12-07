@@ -5,7 +5,7 @@ class ConsoleController < ApplicationController
     background_jobs
     @user = User.find(session[:id])
     @repositories = @user.repositories
-
+    @repository = @user.repositories.find_by(repo_name: 'tracker_request')
   end
 
   def profile
