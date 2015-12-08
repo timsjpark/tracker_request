@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get 'console' => 'console#index'
   get 'console/profile' => 'console#profile', :as => :user
   get 'console/statistics'
+  get 'console/repo-count' => 'console#repo-count'
+  get 'console/:repo_id/info' => 'console#repo-info', :as => :repo_info
 end

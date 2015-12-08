@@ -13,15 +13,20 @@
       </div>
       <div class="col-md-6">
         <h3 class="panel-title github-title split">Repositories:</h3>
-        <p><i class="fa fa-code-fork"></i> <%= @repositories.count %></p>
+        <div class="repo-count-loading">
+          <%= image_tag('ajax-loader.gif') %>
+        </div>
+        <p class="repo-count">
+          <%= render 'console/repo_count' %>
+        </p>
       </div> 
     </div>
     <div class="col-md-4 console-panel">
       <h3 class="panel-title github-title">Current Status</h3>
       <div class="list-group">
-        <% if @repositories.blank? == false %>
+        <% if current_user.repositories.blank? == false %>
           <li class="list-group-item"><h4><%= @repository.repo_name %></h4></li>
-          <li class="list-group-item">ID: <%= @repository.repo_id %></li>
+          <li class="list-group-item">ID: <%= @repository.repo_github_id %></li>
           <li class="list-group-item">Number of forks: <%= @repository.number_of_forks %></li>
           <li class="list-group-item">Forked: <%= @repository.forked %></li>
         <% else %>
@@ -43,9 +48,9 @@
     </div>
     <div class="col-md-6 console-panel">
       <h3 class="panel-title github-title">Please select a Repository to work on:</h3>
-      <div class="list-group">
-        <% @repositories.each do |repo| %>
-            <button type="button" class="list-group-item"><%= repo.repo_name %></button>
+      <div class="list-group repo-list">
+        <% current_user.repositories.each do |repo| %>
+          <%=  link_to(repo.repo_name, repo_info_path(repo.repo_github_id), class: "list-group-item") %>
         <% end %>
       </div>
   </div>
@@ -64,17 +69,21 @@
         condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec
         sed odio dui. </p>
     </div>
-    <div class="col-md-3 console-panel">
-      <h3 class="panel-title github-title">Heading</h3>
+    <div class="col-md-3 console-panel" id="repo-branches">
+      <!-- start app/views/console/_repo_branches.html.erb -->
+      <h3 class="panel-title github-title">Branches</h3>
       <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
         commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
         magna mollis euismod. Donec sed odio dui. </p>
+      <!-- end app/views/console/_repo_branches.html.erb -->
     </div>
-    <div class="col-md-3 console-panel">
-      <h3 class="panel-title github-title">Heading</h3>
+    <div class="col-md-3 console-panel" id="repo-pull-requests">
+      <!-- end app/views/console/_repo_pull_requests.html.erb -->
+      <h3 class="panel-title github-title">Pull Requests</h3>
       <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
         commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
         magna mollis euismod. Donec sed odio dui. </p>
+      <!-- end app/views/console/_repo_pull_requests.html.erb -->
     </div>
   </div>
 

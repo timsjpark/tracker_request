@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
         last_name: last_name,
         email: auth_hash[:info][:email],
         avatar_url: auth_hash[:info][:image],
-        api_key: db_credentials
+        github_api_key: db_credentials
       }
     end
   end

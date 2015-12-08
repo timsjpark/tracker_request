@@ -3,16 +3,19 @@ class ConsoleController < ApplicationController
 
   def index
     background_jobs
-    @user = User.find(session[:id])
-    @repositories = @user.repositories
-    @repository = @user.repositories.where(user_id: session[:id]).first
+    @user = User.find(current_user.id)
+    @repository = @user.repositories.where(user_id: current_user.id).first
   end
 
   def profile
-    @user = User.find(session[:id])
+    @user = User.find(current_user.id)
   end
 
   def statistics
+  end
+
+  def repo_info
+    @repo = Repository.where(repo_id: params[:repo_id]).first
   end
 
   private 

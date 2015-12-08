@@ -2,6 +2,7 @@ class CreateBranches < ActiveRecord::Migration
   def change
     create_table :branches do |t|
       t.string :branch_name
+      t.integer :branch_github_id
       t.string :latest_commit_sha
       t.belongs_to :repository, index: true, foreign_key: true
 

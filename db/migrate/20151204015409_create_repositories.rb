@@ -1,8 +1,8 @@
 class CreateRepositories < ActiveRecord::Migration
   def change
     create_table :repositories do |t|
-      t.integer :repo_id
       t.string :repo_name
+      t.integer :repo_github_id
       t.string :repo_full_name
       t.integer :number_of_forks
       t.boolean :forked

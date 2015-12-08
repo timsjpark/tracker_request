@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20151204031806) do
 
   create_table "branches", force: :cascade do |t|
     t.string   "branch_name"
+    t.integer  "branch_github_id"
     t.string   "latest_commit_sha"
     t.integer  "repository_id"
     t.datetime "created_at",        null: false
@@ -34,19 +35,19 @@ ActiveRecord::Schema.define(version: 20151204031806) do
   add_index "commits", ["branch_id"], name: "index_commits_on_branch_id"
 
   create_table "pull_request_comments", force: :cascade do |t|
-    t.integer  "pr_comment_id"
+    t.integer  "pr_comment_github_id"
     t.text     "content_text"
     t.integer  "repository_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "pull_request_comments", ["repository_id"], name: "index_pull_request_comments_on_repository_id"
 
   create_table "pull_requests", force: :cascade do |t|
-    t.integer  "pr_id"
     t.string   "pr_state"
     t.string   "pr_base_commit"
+    t.integer  "pr_github_id"
     t.string   "pr_title"
     t.text     "pr_body"
     t.integer  "repository_id"
@@ -57,8 +58,8 @@ ActiveRecord::Schema.define(version: 20151204031806) do
   add_index "pull_requests", ["repository_id"], name: "index_pull_requests_on_repository_id"
 
   create_table "repositories", force: :cascade do |t|
-    t.integer  "repo_id"
     t.string   "repo_name"
+    t.integer  "repo_github_id"
     t.string   "repo_full_name"
     t.integer  "number_of_forks"
     t.boolean  "forked"
@@ -76,9 +77,10 @@ ActiveRecord::Schema.define(version: 20151204031806) do
     t.string   "last_name"
     t.string   "email"
     t.string   "avatar_url"
-    t.string   "api_key"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "github_api_key"
+    t.string   "pivotal_api_key"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

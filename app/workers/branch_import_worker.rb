@@ -12,21 +12,20 @@ class BranchImportWorker
       
         @branch_info = @client_connect.branches("#{repo_info[:repo_full_name]}")
         @branch_info.each do |branch_info|
-          branch = Branch.where(branch_name: branch_info[:name]).first_or_initialize
+          branch = Branch.where(branch_github_id: branch_info[:id]).first_or_initialize
 
-          if branch.new_record?
-            branch.update(branch_params(branch_info,repo_info))
-          end
+          branch.update(branch_params(branch_info,repo_info))
         end
       end
-      Resque.enqueue_in(20.seconds, BranchImportWorker, current_user_id)
+      Resque.enqueue_in(65.seconds, BranchImportWorker, current_user_id)
     end
 
     def self.branch_params(branch_info,repo_info)
       {
         branch_name: branch_info[:name],
+        branch_github_id: branch_info[:id],
         latest_commit_sha: branch_info[:commit][:sha],
-        repository_id: repo_info[:repo_id]
+        repository_id: repo_info[:id]
       }
     end
 
