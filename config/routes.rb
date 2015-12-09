@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'console/profile' => 'console#profile', :as => :profile
   get 'console/statistics'
   get 'console/repo-count' => 'console#repo-count'
-  get 'console/:repo_id/info' => 'console#repo-info', :as => :repo_info
+  get 'console/:repo_id/info' => 'console#info', :as => :repo_info
 
   patch 'users/:id' => 'users#update', as: 'update_user'
 end

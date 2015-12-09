@@ -14,8 +14,8 @@ class ConsoleController < ApplicationController
   def statistics
   end
 
-  def repo_info
-    @repo = Repository.where(id: 1).first
+  def info
+    @repo = Repository.where(id: params[:repo_id]).first
   end
 
   private 
