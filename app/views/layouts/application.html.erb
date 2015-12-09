@@ -31,9 +31,9 @@
         <%= image_tag("50px-white.png") %>
       </a>
       <% if current_user %>
-        <%= link_to "Tracker Request", console_path, class: "navbar-brand" %>
+          <%= link_to "Tracker Request", console_path, class: "navbar-brand" %>
       <% else %>
-        <%= link_to "Tracker Request", root_path, class: "navbar-brand" %>
+          <%= link_to "Tracker Request", root_path, class: "navbar-brand" %>
       <% end %>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
@@ -41,10 +41,11 @@
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Contact", contact_path %></li>
         <% if current_user %>
-          <li><%= link_to "#{current_user.username.titleize}", console_path%></li>
-          <li><%= link_to raw("Logout <i class='fa fa-sign-out'></i>"), logout_path, method: :delete %></li>
+            <li><%= link_to "#{current_user.username.titleize}", console_path %></li>
+            <li><%= link_to "Profile", "/console/profile" %></li>
+            <li><%= link_to raw("Logout <i class='fa fa-sign-out'></i>"), logout_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to raw("Signin <i class='fa fa-sign-in'></i>"), '/auth/github' %></li>
+            <li><%= link_to raw("Signin <i class='fa fa-sign-in'></i>"), '/auth/github' %></li>
         <% end %>
       </ul>
     </div>
@@ -52,14 +53,14 @@
 </nav>
 <div class="flash-content">
   <% flash.each do |name, msg| %>
-    <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
-      <button type="button" class="close" data-dismiss="alert">
-        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <%= msg %>
-    <% end %>
+      <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <%= msg %>
+      <% end %>
   <% end %>
 </div>
-    
-    <%= yield %>
-  </body>
+
+<%= yield %>
+</body>
 </html>

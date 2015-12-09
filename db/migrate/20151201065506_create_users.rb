@@ -7,7 +7,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.string :email
       t.string :avatar_url
-      t.string :api_key
+      t.string :github_api_key
+      t.string :pivotal_api_key
 
       t.timestamps null: false
     end

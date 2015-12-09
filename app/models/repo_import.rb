@@ -2,7 +2,8 @@ class RepoImport
   attr_reader :client
 
   def initialize(current_user)
-    @client = Client.new(current_user).client_connect
+    client = Client.new(current_user)
+    @client = client.github_client
   end
   
   def repo_api_call

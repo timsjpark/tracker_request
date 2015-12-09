@@ -1,70 +1,110 @@
 <div class="container">
-      <div class="row console-row">
-        <div class="col-md-4 console-panel">
-          <h3>Profile</h3>
-          <hr>
-          <p>           <i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        </div>
-        <div class="col-md-4 console-panel">
-          <h3>Projects</h3>
-          <hr>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-       </div>
-        <div class="col-md-4 console-panel">
-          <h3>Current Status</h3>
-          <hr>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
+  <div class="row console-row">
+    <div class="col-md-4 console-panel profile-panel">
+      <h3 class="panel-title tracker-title"><%= @user.username.titleize %></h3>
+      <%= image_tag(@user.avatar_url) %>
+      <span>Welcome <%= @user.first_name %> <%= @user.last_name %></span>
+      <span><%= link_to "#{@user.email}", console_path %></span>
+    </div>
+    <div class="col-md-4 console-panel number-panel">
+      <div class="col-md-6" >
+        <h3 class="panel-title tracker-title">Stories:</h3>
+        <p><i class="fa fa-book"></i> 0</p>
       </div>
-
-      <!-- Second Row of console panels -->
-      <div class="row console-row">
-        <div class="col-md-6 console-panel">
-          <h2>Heading</h2>
-          <hr>
-          <p>           <i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <div class="col-md-6">
+        <h3 class="panel-title github-title split">Repositories:</h3>
+        <div class="repo-count-loading">
+          <%= image_tag('ajax-loader.gif') %>
         </div>
-        <div class="col-md-6 console-panel">
-          <h2>Heading</h2>
-          <hr>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-       </div>
+        <p class="repo-count">
+          <%= render 'console/repo_count' %>
+        </p>
+      </div> 
+    </div>
+    <div class="col-md-4 console-panel">
+      <h3 class="panel-title github-title">Current Status</h3>
+      <div class="list-group">
+        <% if current_user.repositories.blank? == false %>
+          <li class="list-group-item"><h4><%= @repository.repo_name %></h4></li>
+          <li class="list-group-item">ID: <%= @repository.repo_github_ident %></li>
+          <li class="list-group-item">Number of forks: <%= @repository.number_of_forks %></li>
+          <li class="list-group-item">Forked: <%= @repository.forked %></li>
+        <% else %>
+          <li class="list-group-item"><h4><%= "No Repository Selected" %></h4></li>
+          <li class="list-group-item">ID: <%= "No Repository Selected" %></li>
+          <li class="list-group-item">Number of forks: <%= "No Repository Selected" %></li>
+          <li class="list-group-item">Forked: <%= "No Repository Selected" %></li>
+        <% end %>
       </div>
+  </div>
 
-
-      <div class="row console-row">
-        <div class="col-md-3 console-panel">
-          <h2>Heading</h2>
-          <hr>
-          <p>           <i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        </div>
-        <div class="col-md-3 console-panel">
-          <h2>Heading</h2>
-          <hr>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        </div>
-        <div class="col-md-3 console-panel">
-          <h2>Heading</h2>
-          <hr>
-          <p>           <i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        </div>
-        <div class="col-md-3 console-panel">
-          <h2>Heading</h2>
-          <hr>
-          <p>           <i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        </div>
+  <!-- Second Row of console panels -->
+  <div class="row console-row">
+    <div class="col-md-6 console-panel" style="clear: both;">
+      <h2 class="panel-title tracker-title">Heading</h2>
+      <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
+        commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+        magna mollis euismod. Donec sed odio dui. </p>
+    </div>
+    <div class="col-md-6 console-panel">
+      <h3 class="panel-title github-title">Please select a Repository to work on:</h3>
+      <div class="list-group repo-list">
+        <% current_user.repositories.each do |repo| %>
+          <%=  link_to(repo.repo_name, repo_info_path(repo.id), class: "list-group-item") %>
+        <% end %>
       </div>
+  </div>
 
-      <div class="row console-row">
-        <div class="col-md-6 console-panel">
-          <h2>Heading</h2>
-          <hr>
-          <p>           <i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+
+  <div class="row console-row">
+    <div class="col-md-3 console-panel">
+      <h3 class="panel-title tracker-title">Heading</h3>
+      <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
+        commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+        magna mollis euismod. Donec sed odio dui. </p>
+    </div>
+    <div class="col-md-3 console-panel">
+      <h3 class="panel-title tracker-title">Heading</h3>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec
+        sed odio dui. </p>
+    </div>
+    <div class="col-md-3 console-panel" id="repo-branches">
+      <!-- start app/views/console/_repo_branches.html.erb -->
+          <h3 class="panel-title github-title">Branches</h3>
+          <div class="repo-branch-loading">
+            <%= image_tag('ajax-loader.gif') %>
+          </div>
+          <div class="repo-branches">
+            <%= render 'console/repo_branches' %>
+          </div>  
+      <!-- end app/views/console/_repo_branches.html.erb -->
+    </div>
+    <div class="col-md-3 console-panel" id="repo-pull-requests">
+      <!-- end app/views/console/_repo_pull_requests.html.erb -->
+          <h3 class="panel-title github-title">Pull Requests</h3>
+        <div class="repo-pull-request-loading">
+          <%= image_tag('ajax-loader.gif') %>
         </div>
-        <div class="col-md-6 console-panel">
-          <h2>Heading</h2>
-          <hr>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-       </div>
-      </div>
+        <div class="repo-pull-requests">
+          <%= render 'console/repo_pull_requests' %>
+        </div> 
+        <!-- end app/views/console/_repo_pull_requests.html.erb -->
+    </div>
+  </div>
+
+  <div class="row console-row">
+    <div class="col-md-6 console-panel">
+      <h3 class="panel-title tracker-title">Heading</h3>
+      <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
+        commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+        magna mollis euismod. Donec sed odio dui. </p>
+    </div>
+    <div class="col-md-6 console-panel">
+      <h3 class="panel-title github-title">Heading</h3>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec
+        sed odio dui. </p>
+    </div>
+  </div>
 </div>

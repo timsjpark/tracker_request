@@ -1,4 +1,60 @@
-<div class="page-header">
-  <h1>Console#profile</h1>
-</div>
-<p>Find me in app/views/console/profile.html.erb</p>
+<%= form_for(@user, html: {class: "form-horizontal", role: "form"}) do |f| %>
+    <% if @user.errors.any? %>
+        <div class="alert alert-danger alert-dismissable" role="alert">
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h4>
+
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :username, @user.username, class: "col-sm-2 control-label" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :uid, 'User ID', class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :uid, :readonly => true, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :username, 'Username', class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :username, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :first_name, 'First Name', class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :last_name, 'Last Name', class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :last_name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, 'Email', class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :email, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :pivotal_api_key, 'Pivotal Tracker API Key', class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :pivotal_api_key, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= button_to "Update Profile Information", user_path(current_user), class: "btn btn-primary" %>
+      </div>
+    </div>
+<% end %>
+

@@ -3,7 +3,7 @@ class CreateCommits < ActiveRecord::Migration
     create_table :commits do |t|
       t.string :author
       t.string :commit_message
-      t.belongs_to :branch, index: true, foreign_key: true
+      t.belongs_to :repository, index: true, foreign_key: true
 
       t.timestamps null: false
     end

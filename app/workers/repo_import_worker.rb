@@ -5,27 +5,26 @@ class RepoImportWorker
       #RepoImport.new(current_user).repo_api_call
       current_user = User.find(current_user_id)
       @client = Client.new(current_user)
-      @client_connect = @client.client_connect
+      @client_connect = @client.github_client
 
       @repo_info = @client_connect.repositories()
       @repo_info.each do |repo_info|
-        repo = Repository.where(repo_id: repo_info[:id]).first_or_initialize
-
-        if repo.new_record?
+        repo = Repository.where(repo_github_ident: repo_info[:id]).first_or_initialize
+        #if repo.new_record?
         # MAY WORK:  repo.update(repo_params)
         # Update all the fields
         # repo.save
 
           repo.update(repo_params(repo_info,current_user_id))
-        end
+        #end
       end   
-      Resque.enqueue_in(5.seconds, RepoImportWorker, current_user_id)
+        Resque.enqueue_in(60.seconds, RepoImportWorker, current_user_id)
     end
 
     def self.repo_params(repo_info,current_user_id)
       {
-        repo_id: repo_info[:id],
         repo_name: repo_info[:name],
+        repo_github_ident: repo_info[:id],
         repo_full_name: repo_info[:full_name],
         number_of_forks: repo_info[:forks],
         forked: repo_info[:fork],

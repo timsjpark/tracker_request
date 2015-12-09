@@ -1,3 +1,3 @@
 class PullRequestComment < ActiveRecord::Base
-  belongs_to :pull_request
+  belongs_to :repository
 end

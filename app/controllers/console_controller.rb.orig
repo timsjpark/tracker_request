@@ -2,20 +2,18 @@ class ConsoleController < ApplicationController
   before_filter :login_required
 
   def index
+<<<<<<< f98130e2e36b2dda723b83f4f813fb99d0e9a389
     background_jobs
-    @user = User.find(current_user.id)
-    @repository = @user.repositories.where(user_id: current_user.id).first
+    #user_profile = User.find(session[:id])
+=======
+    @user = User.find(session[:id])
+>>>>>>> Modify console view and controller to provide user profile info
   end
 
   def profile
-    @user = User.find(current_user.id)
   end
 
   def statistics
-  end
-
-  def info
-    @repo = Repository.where(id: params[:repo_id]).first
   end
 
   private 
