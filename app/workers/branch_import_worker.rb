@@ -23,7 +23,7 @@ class BranchImportWorker
     def self.branch_params(branch_info,repo_info)
       {
         branch_name: branch_info[:name],
-        branch_github_id: branch_info[:id],
+        branch_github_ident: branch_info[:id],
         latest_commit_sha: branch_info[:commit][:sha],
         repository_id: repo_info[:id]
       }

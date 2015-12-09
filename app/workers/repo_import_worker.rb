@@ -9,7 +9,7 @@ class RepoImportWorker
 
       @repo_info = @client_connect.repositories()
       @repo_info.each do |repo_info|
-        repo = Repository.where(repo_github_id: repo_info[:id]).first_or_initialize
+        repo = Repository.where(repo_github_ident: repo_info[:id]).first_or_initialize
         #if repo.new_record?
         # MAY WORK:  repo.update(repo_params)
         # Update all the fields
@@ -24,7 +24,7 @@ class RepoImportWorker
     def self.repo_params(repo_info,current_user_id)
       {
         repo_name: repo_info[:name],
-        repo_github_id: repo_info[:id],
+        repo_github_ident: repo_info[:id],
         repo_full_name: repo_info[:full_name],
         number_of_forks: repo_info[:forks],
         forked: repo_info[:fork],
