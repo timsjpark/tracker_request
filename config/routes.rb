@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount Resque::Server.new, at: '/resque'
+  resources :users, only: :update
 
   root 'home#index'
   get 'about' => 'home#about'
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   get 'console' => 'console#index'
-  get 'console/profile' => 'console#profile', :as => :user
+  get 'console/profile' => 'console#profile', :as => :profile
   get 'console/statistics'
   get 'console/repo-count' => 'console#repo-count'
   get 'console/:repo_id/info' => 'console#repo-info', :as => :repo_info
