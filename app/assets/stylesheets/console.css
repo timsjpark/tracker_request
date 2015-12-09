@@ -111,6 +111,27 @@ body{
     margin: auto;
     width: 150px;
 }
+.repo-branch-loading{
+    display: none;
+    margin: auto;
+    width: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.repo-branch-loading img{
+    width: inherit;
+}
+.repo-pull-request-loading{
+    display: none;
+    margin: auto;
+    width: 150px;
+    width: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.repo-pull-request-loading img{
+    width: inherit;
+}
 .repo-count-loading img{
     width: 30px;
     margin-left: auto;

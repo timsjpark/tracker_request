@@ -8,5 +8,11 @@ $(document).on 'click', '.repo-count a', ->
   false
 
 $(document).on 'click', '.list-group a.list-group-item', ->
+  $(".repo-branches").hide()
+  $(".repo-branch-loading").show()
+  $(".repo-pull-requests").hide()
+  $(".repo-pull-request-loading").show()
   $.getScript @href
   false
+
+

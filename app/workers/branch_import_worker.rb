@@ -12,7 +12,7 @@ class BranchImportWorker
       
         @branch_info = @client_connect.branches("#{repo_info[:repo_full_name]}")
         @branch_info.each do |branch_info|
-          branch = Branch.where(branch_github_id: branch_info[:id]).first_or_initialize
+          branch = Branch.where(branch_name: branch_info[:name]).first_or_initialize
 
           branch.update(branch_params(branch_info,repo_info))
         end

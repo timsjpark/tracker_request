@@ -71,19 +71,25 @@
     </div>
     <div class="col-md-3 console-panel" id="repo-branches">
       <!-- start app/views/console/_repo_branches.html.erb -->
-      <h3 class="panel-title github-title">Branches</h3>
-      <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-        commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-        magna mollis euismod. Donec sed odio dui. </p>
+          <h3 class="panel-title github-title">Branches</h3>
+          <div class="repo-branch-loading">
+            <%= image_tag('ajax-loader.gif') %>
+          </div>
+          <div class="repo-branches">
+            <%= render 'console/repo_branches' %>
+          </div>  
       <!-- end app/views/console/_repo_branches.html.erb -->
     </div>
     <div class="col-md-3 console-panel" id="repo-pull-requests">
       <!-- end app/views/console/_repo_pull_requests.html.erb -->
-      <h3 class="panel-title github-title">Pull Requests</h3>
-      <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-        commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-        magna mollis euismod. Donec sed odio dui. </p>
-      <!-- end app/views/console/_repo_pull_requests.html.erb -->
+          <h3 class="panel-title github-title">Pull Requests</h3>
+        <div class="repo-pull-request-loading">
+          <%= image_tag('ajax-loader.gif') %>
+        </div>
+        <div class="repo-pull-requests">
+          <%= render 'console/repo_pull_requests' %>
+        </div> 
+        <!-- end app/views/console/_repo_pull_requests.html.erb -->
     </div>
   </div>
 
