@@ -6,7 +6,7 @@ class PullRequestCommentImportWorker
       #RepoImport.new(current_user).repo_api_call
       @current_user = User.find(current_user_id)
       @client = Client.new(@current_user)
-      @client_connect = @client.client_connect
+      @client_connect = @client.github_client
       
       Repository.where(user_id: current_user_id).find_each do |repo_info|
           @pull_request_comment_info = @client_connect.issues_comments("#{repo_info[:repo_full_name]}")
