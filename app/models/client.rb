@@ -15,4 +15,13 @@ class Client
       return false;
     end
   end
+
+  def pivotal_client
+    if @current_user.pivotal_api_key.blank? == false
+      @pivotal_key = @current_user.pivotal_api_key
+      @client_connet = TrackerApi::Client.new(token: "#{@pivotal_key}")    
+    else
+      return false;
+    end
+  end
 end
