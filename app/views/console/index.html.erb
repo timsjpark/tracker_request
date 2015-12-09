@@ -26,7 +26,7 @@
       <div class="list-group">
         <% if current_user.repositories.blank? == false %>
           <li class="list-group-item"><h4><%= @repository.repo_name %></h4></li>
-          <li class="list-group-item">ID: <%= @repository.repo_github_id %></li>
+          <li class="list-group-item">ID: <%= @repository.repo_github_ident %></li>
           <li class="list-group-item">Number of forks: <%= @repository.number_of_forks %></li>
           <li class="list-group-item">Forked: <%= @repository.forked %></li>
         <% else %>
@@ -50,7 +50,7 @@
       <h3 class="panel-title github-title">Please select a Repository to work on:</h3>
       <div class="list-group repo-list">
         <% current_user.repositories.each do |repo| %>
-          <%=  link_to(repo.repo_name, repo_info_path(repo.repo_github_id), class: "list-group-item") %>
+          <%=  link_to(repo.repo_name, repo_info_path(repo.id), class: "list-group-item") %>
         <% end %>
       </div>
   </div>

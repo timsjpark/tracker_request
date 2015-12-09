@@ -5,7 +5,7 @@ class RepoImportWorker
       #RepoImport.new(current_user).repo_api_call
       current_user = User.find(current_user_id)
       @client = Client.new(current_user)
-      @client_connect = @client.client_connect
+      @client_connect = @client.github_client
 
       @repo_info = @client_connect.repositories()
       @repo_info.each do |repo_info|

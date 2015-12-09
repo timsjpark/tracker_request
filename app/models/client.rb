@@ -3,6 +3,9 @@ class Client
 
   def initialize(current_user)
     @current_user = current_user
+  end
+
+  def github_client
     if @current_user
       # user = User.find_by(id: @current_user.id)
       @encrypted_key = @current_user.github_api_key
