@@ -55,6 +55,15 @@ body{
     .col-md-3.console-panel{
         width: inherit;
     }
+    .col-md-6{
+        margin-bottom: 20px;
+    }
+    .col-md-4{
+        margin-bottom: 20px;
+    }
+    .col-md-3{
+        margin-bottom: 20px;
+    }
 }
 .col-md-4.console-panel.profile-panel{
     padding: 0px;
@@ -106,10 +115,23 @@ body{
 .github-title.split{
     border-left: 1px solid #efefef;
 }
+span.glyphicon.glyphicon-refresh{
+    font-size: 26px;
+}
 .repo-count-loading{
     display: none;
     margin: auto;
     width: 150px;
+}
+.repo-list-loading{
+    display: none;
+    margin: auto;
+    width: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.repo-list-loading img{
+    width: inherit;   
 }
 .repo-branch-loading{
     display: none;
@@ -142,4 +164,11 @@ body{
 .repo-list{
     height: 250px;
     overflow: scroll;
+}
+.repo-branches{
+    max-height: 300px;
+    overflow: scroll;
+}
+.repo-branch-header{
+    padding-left: 5px;
 }

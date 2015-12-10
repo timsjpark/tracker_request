@@ -1,0 +1,8 @@
+<% if @repo.blank? == false %>
+  <li class="list-group-item"><h4><%= @repo.repo_name %></h4></li>
+  <li class="list-group-item">ID: <%= @repo.repo_github_ident %></li>
+  <li class="list-group-item">Number of forks: <%= @repo.number_of_forks %></li>
+  <li class="list-group-item">Forked: <%= @repo.forked %></li>
+<% else %>
+  <br>
+<% end %>
