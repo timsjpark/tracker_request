@@ -124,6 +124,16 @@ span.glyphicon.glyphicon-refresh{
     margin: auto;
     width: 150px;
 }
+.info-individual-loading{
+    display: none;
+    margin: auto;
+    width: 70px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.info-individual-loading img{
+    width: inherit;
+}
 .repo-list-loading{
     display: none;
     margin: auto;
@@ -197,4 +207,34 @@ li.list-group-item.current-repo-info{
 .current-repo-header{
     font-weight: bold;
     font-size: 20px;
+}
+span.pr-indiv-header{
+    font-weight: bold;
+    font-size: 16px;
+}
+p.pr-info-body{
+    font-size: 16px;
+}
+p.pr-info-body.success-rebase:hover{
+    color: #fff;
+}
+p.pr-info-body.success-rebase{
+    color: green;
+}
+p.pr-info-body.fail-rebase{
+    color: red;
+}
+.pull-request-btn-info{
+    padding 8px 2px;
+    margin-bottom: 0px;
+}
+.individual-info-panel{
+    max-height: 400px;
+    overflow: scroll;
+}
+.pull-request-btn{
+    margin-right auto;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-bottom: 10px;
 }

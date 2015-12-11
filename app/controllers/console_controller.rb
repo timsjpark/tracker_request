@@ -25,6 +25,7 @@ class ConsoleController < ApplicationController
 
   def pull 
     @pull_request = PullRequest.where(id: params[:id]).first
+    @branch = Repository.find("#{@pull_request.repository_id}").branches
   end
 
   private 
