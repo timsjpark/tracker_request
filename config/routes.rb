@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   get 'console/:id/pull' => 'console#pull', :as => :repo_pull
 
   patch 'users/:id' => 'users#update', as: 'update_user'
+
+  get 'console/project-count' => 'console#project-count', as: 'console_project_count'
+  get 'console/:id/projectinfo' => 'console#projectinfo', as: 'project_info'
+  get 'console/:id/story' => 'console#story', as: 'story'
 end

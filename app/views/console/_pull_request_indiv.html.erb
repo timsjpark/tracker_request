@@ -1,5 +1,33 @@
 <%if @pull_request.blank? == false %>
-  <p><%= @pull_request.pr_title %></p>
+  <div class="row">
+    <div class="col-lg-6">
+    <p>This is where the pull request comments are going to be at!</p> 
+    </div>
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="list-group">
+            <li class="list-group-item"><span class="pr-indiv-header">Pull Request Title:</span><p class="pr-info-body"><%= @pull_request.pr_title %></p></li>
+            <% if(@branch.where(branch_name: "master").first.latest_commit_sha == @pull_request.pr_base_commit) %>
+              <li class="list-group-item"><span class="pr-indiv-header">Pull Request Rebase Status:</span> 
+                <p class="pr-info-body success-rebase">Rebased! <i class="fa fa-thumbs-up"></i></p></li>
+            <% else %>
+              <li class="list-group-item"><span class="pr-indiv-header">Pull Request Rebase Status:</span> 
+                <p class="pr-info-body fail-rebase">Needs Rebasing <i class="fa fa-thumbs-down"></i></p></li>
+            <% end %>
+            <li class="list-group-item"><span class="pr-indiv-header">Pull Request Status:</span><p class="pr-info-body"><%= @pull_request.pr_state %></p></li>
+              <li class="list-group-item"><span class="pr-indiv-header">Pull Request Github Id:</span><p class="pr-info-body"><%= @pull_request.pr_github_ident %></p></li>
+              <li class="list-group-item"><span class="pr-indiv-header">Pull Request Description:</span><p><%= @pull_request.pr_body %></p></li>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="btn btn-primary pull-request-btn">
+            <p class="pull-request-btn-info">Submit a Pull Request Comment</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% else %>
   <br>
 <% end %>

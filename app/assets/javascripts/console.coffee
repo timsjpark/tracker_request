@@ -9,7 +9,15 @@ $(document).on 'click', '.repo-count a', ->
   $.getScript @href
   false
 
-$(document).on 'click', '.repo-branch a', ->
+$(document).on 'click', '.project-count a', ->
+  $(".project-count").hide()
+  $(".project-list").hide()
+  $(".project-count-loading").show()
+  $(".project-list-loading").show()
+  $.getScript @href
+  false
+
+$(document).on 'click', '.repo-branches a', ->
   $(".individual-info-panel").hide()
   $(".info-individual-loading").show()
   $.getScript @href
@@ -31,4 +39,16 @@ $(document).on 'click', '.list-group a.list-group-item', ->
   $.getScript @href
   false
 
+$(document).on 'click', '.list-group.project-list a.list-group-item.project-list', ->
+  $(".project-stories").hide()
+  $(".current-project").hide()
+  $(".project-story-loading").show()
+  $(".current-project-loading").show()
+  $.getScript @href
+  false
 
+$(document).on 'click', '.project-stories a', ->
+  $(".story-info-panel").hide()
+  $(".info-story-loading").show()
+  $.getScript @href
+  false

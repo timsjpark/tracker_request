@@ -12,6 +12,7 @@ body {
 .navbar-inverse{
     background-color: #27c667;
     height: 60px;
+    margin-bottom: 0px;
 }
 .navbar-nav{
     float: right;

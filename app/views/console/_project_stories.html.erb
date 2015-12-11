@@ -1,0 +1,8 @@
+<% if @project.blank? == false %>
+    <h4 class="repo-branch-header">You are currently in the: <br> <%= @project.name%> Project</h4>
+    <% @project.stories.each do |story_info| %>
+        <%=  link_to(story_info.name, story_path(story_info.id), class: "list-group-item") %>
+    <% end %>
+<% else %>
+    <br>
+<% end %>

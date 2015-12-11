@@ -25,6 +25,15 @@ class ConsoleController < ApplicationController
 
   def pull 
     @pull_request = PullRequest.where(id: params[:id]).first
+    @branch = Repository.find("#{@pull_request.repository_id}").branches
+  end
+
+  def projectinfo
+    @project = Project.where(id: params[:id]).first
+  end
+
+  def story
+    @story = Story.where(id: params[:id]).first
   end
 
   private 
