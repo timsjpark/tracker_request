@@ -39,7 +39,7 @@ $(document).on 'click', '.list-group a.list-group-item', ->
   $.getScript @href
   false
 
-$(document).on 'click', '.project-list-group a.project-list-group-item', ->
+$(document).on 'click', '.list-group.project-list a.list-group-item.project-list', ->
   $(".project-stories").hide()
   $(".current-project").hide()
   $(".project-story-loading").show()
