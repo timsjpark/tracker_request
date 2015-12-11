@@ -9,6 +9,14 @@ $(document).on 'click', '.repo-count a', ->
   $.getScript @href
   false
 
+  $(document).on 'click', '.project-count a', ->
+  $(".project-count").hide()
+  $(".project-list").hide()
+  $(".project-count-loading").show()
+  $(".project-list-loading").show()
+  $.getScript @href
+  false
+
 $(document).on 'click', '.repo-branches a', ->
   $(".individual-info-panel").hide()
   $(".info-individual-loading").show()
