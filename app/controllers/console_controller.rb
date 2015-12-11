@@ -2,7 +2,8 @@ class ConsoleController < ApplicationController
   before_filter :login_required
 
   def index
-    background_jobs
+    pivotal_background_jobs if current_user.pivotal_api_key.present?
+    github_background_jobs
     @user = User.find(current_user.id)
     @repository = @user.repositories.where(user_id: current_user.id).first
   end
@@ -27,10 +28,15 @@ class ConsoleController < ApplicationController
   end
 
   private 
-  def background_jobs
+  def github_background_jobs
     Resque.enqueue(RepoImportWorker, current_user.id)
     Resque.enqueue(BranchImportWorker, current_user.id)
     Resque.enqueue(PullRequestImportWorker, current_user.id)
     Resque.enqueue(PullRequestCommentImportWorker, current_user.id)
+  end
+
+  def pivotal_background_jobs
+    Resque.enqueue(ProjectImportWorker, current_user.id)
+    Resque.enqueue(StoryImportWorker, current_user.id)
   end
 end
