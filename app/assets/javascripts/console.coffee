@@ -9,13 +9,25 @@ $(document).on 'click', '.repo-count a', ->
   $.getScript @href
   false
 
+$(document).on 'click', '.repo-branch a', ->
+  $(".individual-info-panel").hide()
+  $(".info-individual-loading").show()
+  $.getScript @href
+  false
+
+$(document).on 'click', '.repo-pull-requests a', ->
+  $(".individual-info-panel").hide()
+  $(".info-individual-loading").show()
+  $.getScript @href
+  false
+
 $(document).on 'click', '.list-group a.list-group-item', ->
   $(".repo-branches").hide()
   $(".current-repo").hide()
   $(".repo-pull-requests").hide()
   $(".repo-branch-loading").show()
   $(".repo-pull-request-loading").show()
-  $(".current-repo-loading").hide()
+  $(".current-repo-loading").show()
   $.getScript @href
   false
 

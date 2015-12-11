@@ -74,3 +74,6 @@ h2.header-icons{
 .header-info p{
     text-align: center;
 }
+hr{
+    border-top: 1px solid #fff;
+}

@@ -1,7 +1,7 @@
 <% if @repo.blank? == false %>
   <h4 class="repo-branch-header">You are currently in the: <br> <%= @repo.repo_name%> repository</h4>
   <% @repo.pull_requests.each do |pull_request_info| %>
-    <%=  link_to(pull_request_info.pr_title, repo_info_path(pull_request_info.id), class: "list-group-item") %>
+    <%=  link_to(pull_request_info.pr_title, repo_pull_path(pull_request_info.id), class: "list-group-item") %>
   <% end %>
 <% else %>
   <br>

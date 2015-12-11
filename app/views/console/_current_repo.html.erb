@@ -1,8 +1,12 @@
 <% if @repo.blank? == false %>
-  <li class="list-group-item"><h4><%= @repo.repo_name %></h4></li>
-  <li class="list-group-item">ID: <%= @repo.repo_github_ident %></li>
-  <li class="list-group-item">Number of forks: <%= @repo.number_of_forks %></li>
-  <li class="list-group-item">Forked: <%= @repo.forked %></li>
+    <li class="list-group-item current-repo-info"><h4 class="current-repo-header"><i class="fa fa-github-alt fa-2x"></i> <%= @repo.repo_name %></h4></li>
+    <li class="list-group-item current-repo-info">ID: <%= @repo.repo_github_ident %></li>
+    <li class="list-group-item current-repo-info">Number of forks: <%= @repo.number_of_forks %></li>
+  <% if @repo.forked == true %>
+    <li class="list-group-item current-repo-info">Forked: <i class="fa fa-check-circle"></i></li>
+  <% else %>
+    <li class="list-group-item current-repo-info">Forked: <i class="fa fa-times-circle"></i></li>
+  <% end %>
 <% else %>
-  <br>
+    <br>
 <% end %>

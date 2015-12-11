@@ -117,6 +117,7 @@ body{
 }
 span.glyphicon.glyphicon-refresh{
     font-size: 26px;
+    vertical-align: 5px;
 }
 .repo-count-loading{
     display: none;
@@ -129,6 +130,16 @@ span.glyphicon.glyphicon-refresh{
     width: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+.current-repo-loading{
+    display: none;
+    margin: auto;
+    width: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.current-repo-loading img{
+    width: inherit;
 }
 .repo-list-loading img{
     width: inherit;   
@@ -146,7 +157,6 @@ span.glyphicon.glyphicon-refresh{
 .repo-pull-request-loading{
     display: none;
     margin: auto;
-    width: 150px;
     width: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -170,5 +180,21 @@ span.glyphicon.glyphicon-refresh{
     overflow: scroll;
 }
 .repo-branch-header{
-    padding-left: 5px;
+   text-align: center; 
+}
+.repo-pull-requests{
+    max-height: 300px;
+    overflow: scroll;
+}
+i.fa.fa-github-alt.fa-2x{
+    padding-right: 10px;
+    vertical-align: sub;
+}
+li.list-group-item.current-repo-info{
+    font-weight: bold;
+    font-size: 16px;
+}
+.current-repo-header{
+    font-weight: bold;
+    font-size: 20px;
 }

@@ -78,7 +78,7 @@
     </div>
     <div class="col-md-3 console-panel" id="repo-pull-requests">
       <!-- end app/views/console/_repo_pull_requests.html.erb -->
-          <h3 class="panel-title github-title">Pull Requests</h3>
+        <h3 class="panel-title github-title">Pull Requests</h3>
         <div class="repo-pull-request-loading">
           <%= image_tag('ajax-loader.gif') %>
         </div>
@@ -92,15 +92,16 @@
   <div class="row console-row">
     <div class="col-md-6 console-panel">
       <h3 class="panel-title tracker-title">Heading</h3>
-      <p><i class="fa fa-code"></i> Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus
-        commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-        magna mollis euismod. Donec sed odio dui. </p>
     </div>
     <div class="col-md-6 console-panel">
-      <h3 class="panel-title github-title">Heading</h3>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-        condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec
-        sed odio dui. </p>
+    <h3 class="panel-title github-title">Branch/Pull Request Information</h3>
+      <div class="info-individual-loading">
+        <%= image_tag('ajax-loader.gif') %>
+      </div>
+      <div class="individual-info-panel">
+              <%= render 'console/branch_indiv' %>
+              <%= render 'console/pull_request_indiv' %>
+      </div>
     </div>
   </div>
 </div>
