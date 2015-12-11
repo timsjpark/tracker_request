@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to '/console/profile',
+        format.html { redirect_to '/console',
           notice: "Your information was successfully updated."
         }
       else

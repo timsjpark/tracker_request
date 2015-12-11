@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209225733) do
+ActiveRecord::Schema.define(version: 20151211034029) do
 
   create_table "branches", force: :cascade do |t|
     t.string   "branch_name"
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 20151209225733) do
   end
 
   add_index "commits", ["repository_id"], name: "index_commits_on_repository_id"
+
+  create_table "projects", force: :cascade do |t|
+    t.integer  "project_ident"
+    t.string   "name"
+    t.integer  "iteration_length"
+    t.string   "week_start_day"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
   create_table "pull_request_comments", force: :cascade do |t|
     t.integer  "pr_comment_github_ident"
@@ -65,9 +77,25 @@ ActiveRecord::Schema.define(version: 20151209225733) do
     t.integer  "user_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "parent_repo"
   end
 
   add_index "repositories", ["user_id"], name: "index_repositories_on_user_id"
+
+  create_table "stories", force: :cascade do |t|
+    t.integer  "story_ident"
+    t.string   "kind"
+    t.string   "name"
+    t.text     "description"
+    t.string   "story_type"
+    t.string   "current_state"
+    t.string   "estimate"
+    t.integer  "project_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "stories", ["project_id"], name: "index_stories_on_project_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
