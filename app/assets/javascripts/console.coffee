@@ -48,7 +48,7 @@ $(document).on 'click', '.project-list-group a.project-list-group-item', ->
   false
 
 $(document).on 'click', '.project-stories a', ->
-  $(".individual-info-panel").hide()
-  $(".info-individual-loading").show()
+  $(".story-info-panel").hide()
+  $(".info-story-loading").show()
   $.getScript @href
   false

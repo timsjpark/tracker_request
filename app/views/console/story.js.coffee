@@ -1,4 +1,4 @@
-$(".individual-info-panel").html("<%= escape_javascript(render("story_indiv")) %>")
+$(".story-info-panel").html("<%= escape_javascript(render("story_indiv")) %>")
 
-$(".individual-info-panel").show()
-$(".info-individual-loading").hide()
+$(".story-info-panel").show()
+$(".info-story-loading").hide()
