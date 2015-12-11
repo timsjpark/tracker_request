@@ -49,7 +49,13 @@
     <div class="form-group">
       <%= f.label :pivotal_api_key, 'Pivotal Tracker API Key', class: "col-sm-2 control-label" %>
       <div class="col-sm-10">
-        <%= f.text_field :pivotal_api_key, class: "form-control" %>
+        <%= f.password_field :pivotal_api_key, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+        <%= f.label 'Note', class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        For security reasons, your Pivotal Tracker API Key will never show on this page. But you can still update it by pasting in a new key.
       </div>
     </div>
     <div class="form-group">
