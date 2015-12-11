@@ -28,6 +28,10 @@ class ConsoleController < ApplicationController
     @branch = Repository.find("#{@pull_request.repository_id}").branches
   end
 
+  def project_info
+    @project = Project.where(id: params[:id]).first
+  end
+
   private 
   def github_background_jobs
     Resque.enqueue(RepoImportWorker, current_user.id)

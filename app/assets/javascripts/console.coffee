@@ -39,4 +39,10 @@ $(document).on 'click', '.list-group a.list-group-item', ->
   $.getScript @href
   false
 
-
+$(document).on 'click', '.project-list-group a.project-list-group-item', ->
+  $(".project-stories").hide()
+  $(".current-project").hide()
+  $(".project-story-loading").show()
+  $(".current-project-loading").show()
+  $.getScript @href
+  false

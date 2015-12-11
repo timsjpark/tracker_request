@@ -1,0 +1,6 @@
+<% if @project.blank? == false %>
+    <li class="list-group-item current-repo-info"><h4 class="current-repo-header"><i class="fa fa-github-alt fa-2x"></i> <%= @project.name %></h4></li>
+    <li class="list-group-item current-repo-info">ID: <%= @project.project_ident %></li>
+<% else %>
+    <br>
+<% end %>

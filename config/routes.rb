@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   patch 'users/:id' => 'users#update', as: 'update_user'
 
   get 'console/project-count' => 'console#project-count', as: 'console_project_count'
+  get 'console/project/:id/info' => 'console#project_info', as: 'project_info'
 end
