@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210085648) do
+ActiveRecord::Schema.define(version: 20151211034029) do
 
   create_table "branches", force: :cascade do |t|
     t.string   "branch_name"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20151210085648) do
     t.integer  "user_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "parent_repo"
   end
 
   add_index "repositories", ["user_id"], name: "index_repositories_on_user_id"
