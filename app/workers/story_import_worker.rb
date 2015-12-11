@@ -8,12 +8,12 @@ class StoryImportWorker
 
     Project.where(user_id: current_user_id).find_each do |project_info|
 
-      @project = @client_connect.project(project_info[:id])
+      @project = @client_connect.project(project_info[:project_ident])
       @stories = @project.stories()
       @stories.each do |story_info|
         story = Story.where(story_ident: story_info[:id]).first_or_initialize
 
-        story.update(story_params(story_info, project_info))
+        story.update(story_params(story_info))
       end
       # @branch_info = @client_connect.branches("#{repo_info[:repo_full_name]}")
       # @branch_info.each do |branch_info|
@@ -26,7 +26,7 @@ class StoryImportWorker
     Resque.enqueue_in(65.seconds, StoryImportWorker, current_user_id)
   end
 
-  def self.story_params(story_info, project_info)
+  def self.story_params(story_info)
     {
       story_ident: story_info[:id],
       kind: story_info[:kind],
