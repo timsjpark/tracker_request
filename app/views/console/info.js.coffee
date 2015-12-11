@@ -1,7 +1,10 @@
-$(".repo_branches").html("<%= escape_javascript(render("repo_branches")) %>")
-$(".repo_pull_requests").html("<%= escape_javascript(render("repo_pull_requests")) %>")
+$(".repo-branches").html("<%= escape_javascript(render("repo_branches")) %>")
+$(".repo-pull-requests").html("<%= escape_javascript(render("repo_pull_requests")) %>")
+$(".current-repo").html("<%= escape_javascript(render("current_repo")) %>")
 
+$(".current-repo").show()
 $(".repo-branches").show()
-$(".repo-branch-loading").hide()
 $(".repo-pull-requests").show()
+$(".current-repo-loading").hide()
+$(".repo-branch-loading").hide()
 $(".repo-pull-request-loading").hide()

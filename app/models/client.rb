@@ -12,16 +12,16 @@ class Client
       @client_api_key = Encrypt_Decrypt.new.decrypt(@encrypted_key)
       @client_connect = Octokit::Client.new(:access_token => "#{@client_api_key}")
     else
-      return false;
+      false;
     end
   end
 
   def pivotal_client
     if @current_user.pivotal_api_key.blank? == false
       @pivotal_key = @current_user.pivotal_api_key
-      @client_connet = TrackerApi::Client.new(token: "#{@pivotal_key}")    
+      @client_connect = TrackerApi::Client.new(token: "#{@pivotal_key}")
     else
-      return false;
+      false;
     end
   end
 end

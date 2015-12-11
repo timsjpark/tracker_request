@@ -15,7 +15,15 @@ class ConsoleController < ApplicationController
   end
 
   def info
-    @repo = Repository.where(id: params[:repo_id]).first
+    @repo = Repository.where(id: params[:id]).first
+  end
+
+  def branch 
+    @branch = Branch.where(id: params[:id]).first
+  end
+
+  def pull 
+    @pull_request = PullRequest.where(id: params[:id]).first
   end
 
   private 

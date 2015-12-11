@@ -1,0 +1,27 @@
+.profile-image img{
+    max-width: 180px;
+    border-radius: 400px;
+    margin-left: 20px;
+}
+.form-group.profile-image{
+    margin-top: 50px;
+}
+.form-group{
+    margin-right: 50px!important;
+}
+.btn-primary{
+    box-shadow: 2px 2px 2px grey; 
+}
+.profile-form{
+    margin-left: 10px;
+}
+i.fa.fa-check-circle{
+    color: green;
+    font-size: 24px;
+    vertical-align: bottom;
+}
+i.fa.fa-times-circle{
+    color: red;
+    font-size: 24px;
+    vertical-align: bottom;
+}

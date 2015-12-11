@@ -55,6 +55,15 @@ body{
     .col-md-3.console-panel{
         width: inherit;
     }
+    .col-md-6{
+        margin-bottom: 20px;
+    }
+    .col-md-4{
+        margin-bottom: 20px;
+    }
+    .col-md-3{
+        margin-bottom: 20px;
+    }
 }
 .col-md-4.console-panel.profile-panel{
     padding: 0px;
@@ -106,10 +115,34 @@ body{
 .github-title.split{
     border-left: 1px solid #efefef;
 }
+span.glyphicon.glyphicon-refresh{
+    font-size: 26px;
+    vertical-align: 5px;
+}
 .repo-count-loading{
     display: none;
     margin: auto;
     width: 150px;
+}
+.repo-list-loading{
+    display: none;
+    margin: auto;
+    width: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.current-repo-loading{
+    display: none;
+    margin: auto;
+    width: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.current-repo-loading img{
+    width: inherit;
+}
+.repo-list-loading img{
+    width: inherit;   
 }
 .repo-branch-loading{
     display: none;
@@ -124,7 +157,6 @@ body{
 .repo-pull-request-loading{
     display: none;
     margin: auto;
-    width: 150px;
     width: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -142,4 +174,27 @@ body{
 .repo-list{
     height: 250px;
     overflow: scroll;
+}
+.repo-branches{
+    max-height: 300px;
+    overflow: scroll;
+}
+.repo-branch-header{
+   text-align: center; 
+}
+.repo-pull-requests{
+    max-height: 300px;
+    overflow: scroll;
+}
+i.fa.fa-github-alt.fa-2x{
+    padding-right: 10px;
+    vertical-align: sub;
+}
+li.list-group-item.current-repo-info{
+    font-weight: bold;
+    font-size: 16px;
+}
+.current-repo-header{
+    font-weight: bold;
+    font-size: 20px;
 }

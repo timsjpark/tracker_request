@@ -3,15 +3,31 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'click', '.repo-count a', ->
   $(".repo-count").hide()
+  $(".repo-list").hide()
   $(".repo-count-loading").show()
+  $(".repo-list-loading").show()
+  $.getScript @href
+  false
+
+$(document).on 'click', '.repo-branch a', ->
+  $(".individual-info-panel").hide()
+  $(".info-individual-loading").show()
+  $.getScript @href
+  false
+
+$(document).on 'click', '.repo-pull-requests a', ->
+  $(".individual-info-panel").hide()
+  $(".info-individual-loading").show()
   $.getScript @href
   false
 
 $(document).on 'click', '.list-group a.list-group-item', ->
   $(".repo-branches").hide()
-  $(".repo-branch-loading").show()
+  $(".current-repo").hide()
   $(".repo-pull-requests").hide()
+  $(".repo-branch-loading").show()
   $(".repo-pull-request-loading").show()
+  $(".current-repo-loading").show()
   $.getScript @href
   false
 

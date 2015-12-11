@@ -1,2 +1,8 @@
-<p> This is the branch partial!</p>
-<p> you are on the Repi_name repo </p>
+<% if @repo.blank? == false %>
+  <h4 class="repo-branch-header">You are currently in the: <br> <%= @repo.repo_name%> repository</h4>
+  <% @repo.branches.each do |branch_info| %>
+    <%=  link_to(branch_info.branch_name, branch_path(branch_info.id), class: "list-group-item") %>
+  <% end %>
+<% else %>
+  <br>
+<% end %>

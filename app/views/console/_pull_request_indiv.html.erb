@@ -1,0 +1,5 @@
+<%if @pull_request.blank? == false %>
+  <p><%= @pull_request.pr_title %></p>
+<% else %>
+  <br>
+<% end %>
