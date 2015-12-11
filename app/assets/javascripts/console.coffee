@@ -9,7 +9,7 @@ $(document).on 'click', '.repo-count a', ->
   $.getScript @href
   false
 
-$(document).on 'click', '.repo-branch a', ->
+$(document).on 'click', '.repo-branches a', ->
   $(".individual-info-panel").hide()
   $(".info-individual-loading").show()
   $.getScript @href
