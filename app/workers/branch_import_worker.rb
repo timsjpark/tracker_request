@@ -27,5 +27,4 @@ class BranchImportWorker
         repository_id: repo_info[:id]
       }
     end
-
 end
