@@ -285,4 +285,6 @@ ul.story-individual-info{
     padding-left: 10px;
     word-wrap: break-word;
 }
-
+.repo-branches a{
+    word-wrap: break-word;
+}
