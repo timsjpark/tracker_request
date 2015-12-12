@@ -1,7 +1,7 @@
 <div class="container console-container">
   <div class="row console-row">
     <div class="col-md-4 console-panel profile-panel">
-      <h3 class="panel-title tracker-title"><%= @user.username.titleize %></h3>
+      <h3 class="panel-title tracker-title"><%= @user.username.titleize %> Profile:</h3>
       <%= image_tag(@user.avatar_url) %>
       <span>Welcome <%= @user.first_name %> <%= @user.last_name %></span>
       <span><%= link_to "#{@user.email}", console_path %></span>
@@ -27,7 +27,7 @@
       </div> 
     </div>
     <div class="col-md-4 console-panel">
-      <h3 class="panel-title github-title">Current Status</h3>
+      <h3 class="panel-title github-title">Current Status:</h3>
         <div class="current-repo-loading">
           <%= image_tag('ajax-loader.gif') %>
         </div>
@@ -62,7 +62,7 @@
 
   <div class="row console-row">
     <div class="col-md-6 console-panel" id="project-stories">
-      <h3 class="panel-title tracker-title">Stories</h3>
+      <h3 class="panel-title tracker-title">Stories:</h3>
       <div class="project-story-loading">
         <%= image_tag('ajax-loader.gif') %>
       </div>
@@ -72,7 +72,7 @@
     </div>
     <div class="col-md-3 console-panel" id="repo-branches">
       <!-- start app/views/console/_repo_branches.html.erb -->
-          <h3 class="panel-title github-title">Branches</h3>
+          <h3 class="panel-title github-title">Branches:</h3>
           <div class="repo-branch-loading">
             <%= image_tag('ajax-loader.gif') %>
           </div>
@@ -83,7 +83,7 @@
     </div>
     <div class="col-md-3 console-panel" id="repo-pull-requests">
       <!-- end app/views/console/_repo_pull_requests.html.erb -->
-        <h3 class="panel-title github-title">Pull Requests</h3>
+        <h3 class="panel-title github-title">Pull Requests:</h3>
         <div class="repo-pull-request-loading">
           <%= image_tag('ajax-loader.gif') %>
         </div>
@@ -96,7 +96,7 @@
 
   <div class="row console-row">
     <div class="col-md-6 console-panel">
-      <h3 class="panel-title tracker-title">Story Information</h3>
+      <h3 class="panel-title tracker-title">Story Information: <i class="fa fa-file-text"></i></h3>
       <div class="info-individual-loading">
         <%= image_tag('ajax-loader.gif') %>
       </div>
@@ -105,7 +105,7 @@
       </div>
     </div>
     <div class="col-md-6 console-panel">
-    <h3 class="panel-title github-title">Branch/Pull Request Information</h3>
+      <h3 class="panel-title github-title">Branch/Pull Request Information: <i class="fa fa-file-code-o"></i></h3>
       <div class="info-individual-loading">
         <%= image_tag('ajax-loader.gif') %>
       </div>

@@ -42,7 +42,7 @@ body{
     width: 23%;
 }
 .console-panel:hover{
-    box-shadow: 6px 6px #e3e3e3;
+    box-shadow: 4px 4px #e3e3e3;
 }
 .console-panel p{
     padding: 5px;
@@ -215,6 +215,14 @@ i.fa.fa-github-alt.fa-2x{
     padding-right: 10px;
     vertical-align: sub;
 }
+i.fa.fa-file-code-o{
+    float: right;
+    padding-right: 10px;
+}
+i.fa.fa-file-text{
+    float: right;
+    padding-right: 10px;
+}
 li.list-group-item.current-repo-info{
     font-weight: bold;
     font-size: 16px;
@@ -265,4 +273,11 @@ p.pr-info-body.fail-rebase{
 }
 .story-individual-info{
     list-style: none;
+}
+ul.story-individual-info{
+    padding-left: 5px;
+}
+.story-panel{
+    max-height: 400px;
+    overflow: scroll;
 }

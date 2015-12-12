@@ -21,6 +21,7 @@ class ConsoleController < ApplicationController
 
   def branch 
     @branch = Branch.where(id: params[:id]).first
+    @branch_repo = Repository.where(id: "#{@branch.repository_id}").first
   end
 
   def pull 

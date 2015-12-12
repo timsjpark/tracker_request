@@ -14,8 +14,8 @@
  *= require_self
  */
 
-@import "font-awesome-sprockets.css";
-@import "font-awesome.css";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 @media(min-width: 768px){
     .navbar-nav > li > a{
