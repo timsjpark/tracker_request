@@ -1,6 +1,11 @@
 body{
     background: #e9eaed;
 }
+@media (min-width: 1200px){
+    .container.console-container{
+        width: 1370px;
+    }
+}
 .console-panel{
     border: 1px solid #e3e3e3;
     margin: 4px;
@@ -238,10 +243,6 @@ p.pr-info-body.fail-rebase{
     margin-left: 5px;
     margin-bottom: 10px;
 }
-.project-stories{
-    max-height: 300px;
-    overflow: scroll;
-}
-.story-individual-info{
-    list-style: none;
+.pr-comment-hr{
+    border-top: 1px solid #000;
 }
