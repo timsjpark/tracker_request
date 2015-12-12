@@ -10,27 +10,15 @@ class TrackerCommentImportWorker
 
       Story.where(project_id: project_info[:id]).find_each do |story_info|
 
-        @tracker_comments = Comments.get(project_info[:project_ident], story_info[:story_ident])
+        @tracker_comments = @client_connect.comments(project_info[:project_ident], story_info[:story_ident])
         @tracker_comments.each do |comment_info|
           tracker_comment = TrackerComment.where(comment_ident: [comment_info[:id]]).first_or_initialize
           tracker_comment.update(tracker_comment_params(comment_info, story_info))
         end
       end
-
-      # @project = @client_connect.project(project_info[:project_ident])
-      # @stories = @project.stories()
-      # @stories.each do |story_info|
-      #   story = Story.where(story_ident: story_info[:id]).first_or_initialize
-      #
-      #   @tracker_comments = Comment.new.get(project_info[:project_ident], story[:story_ident])
-      #   @tracker_comments.each do |comment_info|
-      #     tracker_comment = TrackerComment.where(comment_ident: [comment_info[:id]])
-      #     tracker_comment.update(tracker_comment_params(comment_info, story))
-      #   end
-      # end
     end
 
-    Resque.enqueue_in(100.seconds, StoryImportWorker, current_user_id)
+    Resque.enqueue_in(100.seconds, TrackerCommentImportWorker, current_user_id)
   end
 
   def self.tracker_comment_params(comment_info,story_info)
