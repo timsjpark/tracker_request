@@ -1,6 +1,11 @@
 body{
     background: #e9eaed;
 }
+@media (min-width: 1300px){
+    .container.console-container{
+        width: 1370px;
+    }
+}
 .console-panel{
     border: 1px solid #e3e3e3;
     margin: 4px;
@@ -37,7 +42,7 @@ body{
     width: 23%;
 }
 .console-panel:hover{
-    box-shadow: 6px 6px #e3e3e3;
+    box-shadow: 4px 4px #e3e3e3;
 }
 .console-panel p{
     padding: 5px;
@@ -141,6 +146,16 @@ span.glyphicon.glyphicon-refresh{
     padding-top: 20px;
     padding-bottom: 20px;
 }
+.project-story-loading{
+    display: none;
+    margin: auto;
+    width: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.project-story-loading img{
+    width: inherit;
+}
 .current-repo-loading{
     display: none;
     margin: auto;
@@ -200,6 +215,14 @@ i.fa.fa-github-alt.fa-2x{
     padding-right: 10px;
     vertical-align: sub;
 }
+i.fa.fa-file-code-o{
+    float: right;
+    padding-right: 10px;
+}
+i.fa.fa-file-text{
+    float: right;
+    padding-right: 10px;
+}
 li.list-group-item.current-repo-info{
     font-weight: bold;
     font-size: 16px;
@@ -225,7 +248,7 @@ p.pr-info-body.fail-rebase{
     color: red;
 }
 .pull-request-btn-info{
-    padding: 8px 2px;
+    padding 8px 2px;
     margin-bottom: 0px;
 }
 .individual-info-panel{
@@ -233,15 +256,35 @@ p.pr-info-body.fail-rebase{
     overflow: scroll;
 }
 .pull-request-btn{
-    margin-right: auto;
+    margin-right auto;
     margin-top: 10px;
     margin-left: 5px;
     margin-bottom: 10px;
 }
+.pr-comment-list{
+    list-style: none;
+}
+.pr-comment-hr{
+    border-top: 1px solid #000;
+}
 .project-stories{
-    max-height: 300px;
+    max-height: 340px;
     overflow: scroll;
 }
 .story-individual-info{
     list-style: none;
+}
+ul.story-individual-info{
+    padding-left: 5px;
+}
+.story-panel{
+    max-height: 400px;
+    overflow: scroll;
+}
+.comments-list{
+    padding-left: 10px;
+    word-wrap: break-word;
+}
+.repo-branches a{
+    word-wrap: break-word;
 }

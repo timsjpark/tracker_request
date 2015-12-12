@@ -1,33 +1,39 @@
 <% if @story.blank? == false %>
-    <div class="col-lg-6">
+<div class="row">
+    <div class="col-lg-6 story-panel">
       <ul class="story-individual-info">
         <br>
         <li><span class="pr-indiv-header">Story:</span>
           <p><%= @story.name %></p>
         </li>
+        <hr class="pr-comment-hr">
         <li><span class="pr-indiv-header">Type:</span>
           <p><%= @story.story_type %></p>
         </li>
+        <hr class="pr-comment-hr">
         <li><span class="pr-indiv-header">Estimate:</span>
           <p><%= @story.estimate %></p>
         </li>
+        <hr class="pr-comment-hr">
         <li><span class="pr-indiv-header">Status:</span>
           <p><%= @story.current_state %></p>
         </li>
+        <hr class="pr-comment-hr">
         <li><span class="pr-indiv-header">Description:</span>
           <p><%= @story.description %></p>
         </li>
       </ul>
     </div>
-    <div class="col-lg-6">
-      <ul class="story-individual-info">
+    <div class="col-lg-6 story-panel">
+      <ol class="comments-list">
         <br>
-        <li><span class="pr-indiv-header">Comments:</span>
-        <% @comments.each do |comment| %>
-          <li><p><%= comment.text %></p></li>
-        <% end %>
-      </ul>
+        <lh><span class="pr-indiv-header">Comments:</span></lh>
+          <% @comments.each do |comment| %>
+        <li><p><%= comment.text %></p></li>
+          <% end %>
+      </ol>
     </div>
+</div>
 <% else %>
     <br>
 <% end %>

@@ -1,5 +1,12 @@
 <%if @branch.blank? == false %>
-  <p><%= @branch.branch_name %></p>
+  <h3 class="repo-branch-header"><%= @branch.branch_name %></h3>
+  <ul class="story-individual-info">
+    <span class="pr-indiv-header">Latest Commit SHA: </span>
+    <li><%= @branch.latest_commit_sha %></li>
+    <hr class="pr-comment-hr">
+    <span class="pr-indiv-header">Repository Branch Comes From: </span>
+    <li><%= @branch_repo.repo_name %></li>
+  </ul>
 <% else %>
   <br>
 <% end %>

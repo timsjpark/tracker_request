@@ -12,7 +12,7 @@ class ProjectImportWorker
 
       project.update(project_params(project_info,current_user_id))
     end
-    Resque.enqueue_in(60.seconds, ProjectImportWorker, current_user_id)
+    Resque.enqueue_in(80.seconds, ProjectImportWorker, current_user_id)
   end
 
   def self.project_params(project_info,current_user_id)

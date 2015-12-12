@@ -21,11 +21,13 @@ class ConsoleController < ApplicationController
 
   def branch 
     @branch = Branch.where(id: params[:id]).first
+    @branch_repo = Repository.where(id: "#{@branch.repository_id}").first
   end
 
   def pull 
     @pull_request = PullRequest.where(id: params[:id]).first
     @branch = Repository.find("#{@pull_request.repository_id}").branches
+    @pull_request_comments = PullRequestComment.where(repository_id: "#{@pull_request.repository_id}").find_each
   end
 
   def projectinfo

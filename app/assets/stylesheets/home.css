@@ -78,3 +78,7 @@ h2.header-icons{
 hr{
     border-top: 1px solid #fff;
 }
+.col-sm-10{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

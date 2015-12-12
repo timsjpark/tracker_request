@@ -1,7 +1,19 @@
 <%if @pull_request.blank? == false %>
   <div class="row">
     <div class="col-lg-6">
-    <p>This is where the pull request comments are going to be at!</p> 
+      <ul class="pr-comment-list">
+      <% if @pull_request_comments.blank? == false %>
+        <% @pull_request_comments.each do |pull_request_comment_info| %>
+          <li><span class="pr-indiv-header">Comment Github ID:</span> 
+            <p><%= pull_request_comment_info.pr_comment_github_ident %></p></li>
+          <li><span class="pr-indiv-header">Comment Body:</span>
+            <p><%= pull_request_comment_info.content_text %></p></li>
+          <hr class="pr-comment-hr">
+        <% end %>
+      <% else %>
+        <br>
+      <% end %>
+    </ul>
     </div>
     <div class="col-lg-6">
       <div class="row">
@@ -29,5 +41,4 @@
     </div>
   </div>
 <% else %>
-  <br>
 <% end %>
