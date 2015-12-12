@@ -1,5 +1,5 @@
 <% if @story.blank? == false %>
-    <div class="col-lg-12">
+    <div class="col-lg-6">
       <ul class="story-individual-info">
         <br>
         <li><span class="pr-indiv-header">Story:</span>
@@ -17,6 +17,15 @@
         <li><span class="pr-indiv-header">Description:</span>
           <p><%= @story.description %></p>
         </li>
+      </ul>
+    </div>
+    <div class="col-lg-6">
+      <ul class="story-individual-info">
+        <br>
+        <li><span class="pr-indiv-header">Comments:</span>
+        <% @comments.each do |comment| %>
+          <li><p><%= comment.text %></p></li>
+        <% end %>
       </ul>
     </div>
 <% else %>

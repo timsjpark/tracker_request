@@ -34,6 +34,7 @@ class ConsoleController < ApplicationController
 
   def story
     @story = Story.where(id: params[:id]).first
+    @comments = TrackerComment.where(story_id: @story.id)
   end
 
   private 
