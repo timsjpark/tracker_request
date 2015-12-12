@@ -263,3 +263,6 @@ p.pr-info-body.fail-rebase{
     max-height: 340px;
     overflow: scroll;
 }
+.story-individual-info{
+    list-style: none;
+}
