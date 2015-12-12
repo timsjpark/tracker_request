@@ -281,3 +281,8 @@ ul.story-individual-info{
     max-height: 400px;
     overflow: scroll;
 }
+.comments-list{
+    padding-left: 10px;
+    word-wrap: break-word;
+}
+

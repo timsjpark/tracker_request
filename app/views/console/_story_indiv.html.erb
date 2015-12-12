@@ -25,8 +25,13 @@
       </ul>
     </div>
     <div class="col-lg-6 story-panel">
-      <p>Here is where the comments are going to go!</p>
-    
+      <ol class="comments-list">
+        <br>
+        <lh><span class="pr-indiv-header">Comments:</span></lh>
+          <% @comments.each do |comment| %>
+        <li><p><%= comment.text %></p></li>
+          <% end %>
+      </ol>
     </div>
 </div>
 <% else %>
