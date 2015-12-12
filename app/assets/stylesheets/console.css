@@ -40,7 +40,7 @@ body{
     box-shadow: 6px 6px #e3e3e3;
 }
 .console-panel p{
-    padding: 10px;
+    padding: 5px;
 }
 .console-row{
     margin-top: 50px;
@@ -241,4 +241,7 @@ p.pr-info-body.fail-rebase{
 .project-stories{
     max-height: 300px;
     overflow: scroll;
+}
+.story-individual-info{
+    list-style: none;
 }
