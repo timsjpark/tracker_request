@@ -24,5 +24,5 @@ Rails.application.routes.draw do
   get 'console/:id/projectinfo' => 'console#projectinfo', as: 'project_info'
   get 'console/:id/story' => 'console#story', as: 'story'
 
-  get 'report_bug' => 'bug#report', as: 'report_bug'
+  get 'report_bug' => 'bugs#report_bug', as: 'report_bug'
 end
