@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151211034029) do
+ActiveRecord::Schema.define(version: 20151212072121) do
 
   create_table "branches", force: :cascade do |t|
     t.string   "branch_name"
@@ -96,6 +96,16 @@ ActiveRecord::Schema.define(version: 20151211034029) do
   end
 
   add_index "stories", ["project_id"], name: "index_stories_on_project_id"
+
+  create_table "tracker_comments", force: :cascade do |t|
+    t.string   "text"
+    t.integer  "story_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "comment_ident"
+  end
+
+  add_index "tracker_comments", ["story_id"], name: "index_tracker_comments_on_story_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

@@ -34,6 +34,7 @@ class ConsoleController < ApplicationController
 
   def story
     @story = Story.where(id: params[:id]).first
+    @comments = TrackerComment.where(story_id: @story.id)
   end
 
   private 
@@ -47,5 +48,6 @@ class ConsoleController < ApplicationController
   def pivotal_background_jobs
     Resque.enqueue(ProjectImportWorker, current_user.id)
     Resque.enqueue(StoryImportWorker, current_user.id)
+    Resque.enqueue(TrackerCommentImportWorker, current_user.id)
   end
 end
