@@ -1,7 +1,7 @@
 body{
     background: #e9eaed;
 }
-@media (min-width: 1200px){
+@media (min-width: 1300px){
     .container.console-container{
         width: 1370px;
     }
@@ -146,6 +146,16 @@ span.glyphicon.glyphicon-refresh{
     padding-top: 20px;
     padding-bottom: 20px;
 }
+.project-story-loading{
+    display: none;
+    margin: auto;
+    width: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.project-story-loading img{
+    width: inherit;
+}
 .current-repo-loading{
     display: none;
     margin: auto;
@@ -230,7 +240,7 @@ p.pr-info-body.fail-rebase{
     color: red;
 }
 .pull-request-btn-info{
-    padding: 8px 2px;
+    padding 8px 2px;
     margin-bottom: 0px;
 }
 .individual-info-panel{
@@ -238,11 +248,15 @@ p.pr-info-body.fail-rebase{
     overflow: scroll;
 }
 .pull-request-btn{
-    margin-right: auto;
+    margin-right auto;
     margin-top: 10px;
     margin-left: 5px;
     margin-bottom: 10px;
 }
 .pr-comment-hr{
     border-top: 1px solid #000;
+}
+.project-stories{
+    max-height: 340px;
+    overflow: scroll;
 }
