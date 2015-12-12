@@ -253,6 +253,9 @@ p.pr-info-body.fail-rebase{
     margin-left: 5px;
     margin-bottom: 10px;
 }
+.pr-comment-list{
+    list-style: none;
+}
 .pr-comment-hr{
     border-top: 1px solid #000;
 }
