@@ -1,5 +1,9 @@
 <%if @story.blank? == false %>
-    <p><%= @story.name %></p>
+    <p>Story: <%= @story.name %></p>
+    <p>Type: <%= @story.story_type %></p>
+    <p>Estimate: <%= @story.estimate %></p>
+    <p>Description: <%= @story.description %></p>
+    <p>Status: <%= @story.current_state %></p>
 <% else %>
     <br>
 <% end %>
