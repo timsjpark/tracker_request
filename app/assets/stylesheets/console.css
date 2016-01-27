@@ -248,7 +248,7 @@ p.pr-info-body.fail-rebase{
     color: red;
 }
 .pull-request-btn-info{
-    padding 8px 2px;
+    padding: 8px 2px;
     margin-bottom: 0px;
 }
 .individual-info-panel{
@@ -256,7 +256,7 @@ p.pr-info-body.fail-rebase{
     overflow: scroll;
 }
 .pull-request-btn{
-    margin-right auto;
+    margin-right: auto;
     margin-top: 10px;
     margin-left: 5px;
     margin-bottom: 10px;
