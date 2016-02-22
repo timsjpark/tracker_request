@@ -49,8 +49,9 @@ RSpec.describe ConsoleController, type: :controller do
 
     describe "User tries to access the console page" do
       it "allows user to view console#index page" do
-          visit '/'
-          expect(page).to have_content('Jtest')
+        visit '/console'
+        expect(response).to have_http_status(:success)
+          #expect(page).to have_content('Jtest')
       end
     end
 
