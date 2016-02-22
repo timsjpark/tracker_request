@@ -28,7 +28,8 @@ RSpec.describe ConsoleController, type: :controller do
 
   describe "User is logged in" do
 
-    before(:all) do
+    before do
+      Capybara.default_host = 'http://127.0.0.1:3000'
       OmniAuth.config.test_mode = true
       OmniAuth.config.mock_auth[:github] = {
         provider: 'github',
@@ -43,23 +44,13 @@ RSpec.describe ConsoleController, type: :controller do
           image: 'jtest.jpg'
         }
       }
+      visit 'auth/github'
     end
-    before do
-      Capybara.default_host = 'http://127.0.0.1'
-      puts "Capybara.current_host: #{Capybara.current_host}"
-      puts "Capybara.default_host: #{Capybara.default_host}"
-      puts "Capybara.current_url: #{Capybara.current_url}"
-    end
+
     describe "User tries to access the console page" do
       it "allows user to view console#index page" do
-          Capybara.default_host = 'http://127.0.0.1:3000'
-          capy = Cabybara.default_host
           visit '/'
-          visit "#{capy}/auth/github"
-          save_and_open_page
-          #click_link('Signin')
-          visit 'auth/github/callback'
-          expect(page).to have_content('Sign In!')
+          expect(page).to have_content('Jtest')
       end
     end
 
