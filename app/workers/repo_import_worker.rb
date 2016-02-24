@@ -17,7 +17,7 @@ class RepoImportWorker
 
           repo.update(repo_params(repo_info,current_user_id))
         #end
-      end   
+      end
         Resque.enqueue_in(60.seconds, RepoImportWorker, current_user_id)
     end
 
@@ -30,7 +30,7 @@ class RepoImportWorker
         number_of_forks: repo_info[:forks],
         forked: repo_info[:fork],
         parent_repo: parent_repo,
-        user_id: current_user_id 
+        user_id: current_user_id
       }
     end
 

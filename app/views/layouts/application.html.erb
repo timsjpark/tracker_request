@@ -30,11 +30,7 @@
       <a class="navbar-logo pull-left">
         <%= image_tag("50px-white.png") %>
       </a>
-      <% if current_user %>
-          <%= link_to "Tracker Request", console_path, class: "navbar-brand" %>
-      <% else %>
           <%= link_to "Tracker Request", root_path, class: "navbar-brand" %>
-      <% end %>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -43,9 +39,9 @@
         <% if current_user %>
           <li><%= link_to raw("#{current_user.username.titleize} <i class='fa fa-user'></i>"), console_path %></li>
           <li><%= link_to raw("Profile <i class='fa fa-users'></i>"), "/console/profile" %></li>
-            <li><%= link_to raw("Logout <i class='fa fa-sign-out'></i>"), logout_path, method: :delete %></li>
+            <li><%= link_to raw("Sign Out <i class='fa fa-sign-out'></i>"), logout_path, method: :delete %></li>
         <% else %>
-            <li><%= link_to raw("Signin <i class='fa fa-sign-in'></i>"), '/auth/github' %></li>
+            <li><%= link_to raw("Sign In <i class='fa fa-sign-in'></i>"), '/auth/github' %></li>
         <% end %>
       </ul>
     </div>
