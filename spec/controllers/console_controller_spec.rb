@@ -29,22 +29,7 @@ RSpec.describe ConsoleController, type: :controller do
   describe "User is logged in" do
 
     before do
-      Capybara.default_host = 'http://127.0.0.1:3000'
-      OmniAuth.config.test_mode = true
-      OmniAuth.config.mock_auth[:github] = {
-        provider: 'github',
-        uid: '1234567',
-        credentials: {
-          token: '3kynje'
-        },
-        info: {
-          nickname: 'jtest',
-          name: 'Joe Test',
-          email: 'email@email.com',
-          image: 'jtest.jpg'
-        }
-      }
-      visit 'auth/github'
+      OmniAuthMock::User.new.current_user
     end
 
     describe "User tries to access the console page" do
@@ -56,11 +41,17 @@ RSpec.describe ConsoleController, type: :controller do
     end
 
     describe "User tries to access profile page" do
-      it "allows user to view console#profile page"
+      it "allows user to view console#profile page" do
+        visit '/console/profile'
+        expect(response).to have_http_status(:success)
+      end
     end
+
     describe "User tries to access the statistics page" do
-      it "allows user to view console#statistics page"
+      it "allows user to view console#statistics page" do
+        visit '/console/statistics'
+        expect(response).to have_http_status(:success)
+      end
     end
   end
-
 end

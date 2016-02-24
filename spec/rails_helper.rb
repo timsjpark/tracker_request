@@ -51,6 +51,8 @@ RSpec.configure do |config|
  config.infer_spec_type_from_file_location!
 
  config.include Capybara::DSL
+
+ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
