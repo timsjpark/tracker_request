@@ -22,11 +22,27 @@ RSpec.describe "console/index.html.erb", type: :view do
       end
 
       # Display First and last name
-      it "shows the user their email address" do
+      it "shows the user their full name" do
         expect(page).to have_content('Welcome Joe Test')
       end
+
+      # Display the image to the user
+      it "shows the user their github image" do
+        within('.col-md-4.console-panel.profile-panel') {
+          expect(page).to have_css('img[src="jtest.png"]')
+        }
+      end
     end
-    # Test to make sure that image is displaying the correct URL (Factory Girl)
+
+    describe "Repositories" do
+      before do
+
+      end
+
+      it 'shows the user the repository count' do
+
+      end
+    end
 
   # Add test to make sure repository count is correct (Factory Girl)
   # Add test to make sure repositories are showing (Factory Girl)
