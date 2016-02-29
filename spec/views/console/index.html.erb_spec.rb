@@ -49,7 +49,9 @@ RSpec.describe "console/index.html.erb", type: :view do
       end
 
       it 'shows the user the repository list' do
-          #a.list-group-item
+        within('.list-group.repo-list') {
+          expect(page).to have_css('a.list-group-item', count: 4)
+        }
       end
     end
 
