@@ -36,7 +36,7 @@ RSpec.describe "console/index.html.erb", type: :view do
 
     describe "Repositories" do
       before do
-        repo = create(:repository)
+        repo = create_list(:repository, 4)
         #puts "================"
         #puts Repository.count
         #puts "================"
@@ -44,12 +44,15 @@ RSpec.describe "console/index.html.erb", type: :view do
 
       it 'shows the user the repository count' do
         within('p.repo-count') {
-          expect(page).to have_content('1')
+          expect(page).to have_content('4')
         }
+      end
+
+      it 'shows the user the repository list' do
+          #a.list-group-item
       end
     end
 
-  # Add test to make sure repository count is correct (Factory Girl)
   # Add test to make sure repositories are showing (Factory Girl)
   # Add test to make sure projects are showing (Factory Girl)
   # Add test to make sure projects count is correct (Factory Girl)

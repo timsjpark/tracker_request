@@ -1,9 +1,9 @@
 FactoryGirl.define do
   # Add the user association in the Factories so that association can be tested properly
   factory :repository do
-  id 1
-  repo_name "MyString"
-  number_of_forks 1
+  id { Faker::Number.between(1, 20) }
+  repo_name { Faker::Lorem.word }
+  number_of_forks { Faker::Number.between(1, 6) }
   forked false
   association :user
   end
