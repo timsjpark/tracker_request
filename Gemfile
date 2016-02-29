@@ -4,9 +4,6 @@ gem 'bootstrap-generators'
 #Gem for Font Awesome to be included in the project
 gem 'font-awesome-sass', '~> 4.4.0'
 
-group :development do
-  gem 'foreman'
-end
 gem 'resque', require: 'resque/server'
 gem 'resque-scheduler', '2.5.5', :require => 'resque_scheduler/server'
 
@@ -21,8 +18,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
-gem 'dotenv-rails', :groups => [:development, :test]
 
 # Omniauth Gem for Github
 gem 'omniauth-github'
@@ -53,6 +48,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'dotenv-rails'
   gem 'byebug'
   gem 'rspec-rails'
   gem 'guard-rspec', require: false
@@ -70,6 +66,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'foreman'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

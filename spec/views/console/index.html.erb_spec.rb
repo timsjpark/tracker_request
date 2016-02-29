@@ -36,11 +36,16 @@ RSpec.describe "console/index.html.erb", type: :view do
 
     describe "Repositories" do
       before do
-
+        repo = create(:repository)
+        #puts "================"
+        #puts Repository.count
+        #puts "================"
       end
 
       it 'shows the user the repository count' do
-
+        within('p.repo-count') {
+          expect(page).to have_content('1')
+        }
       end
     end
 

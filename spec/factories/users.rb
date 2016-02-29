@@ -6,7 +6,6 @@ FactoryGirl.define do
     last_name "Test"
     email "email@email.com"
     avatar_url "jtest.jpg"
-    company "Testing Dot Com"
-    api_key 1
+    github_api_key 112312413
   end
 end

@@ -51,6 +51,7 @@ RSpec.configure do |config|
  config.infer_spec_type_from_file_location!
 
  config.include Capybara::DSL
+ config.include FactoryGirl::Syntax::Methods
 
  Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
   # Filter lines from Rails gems in backtraces.
@@ -62,7 +63,6 @@ end
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
-
     with.library :rails
   end
 end
