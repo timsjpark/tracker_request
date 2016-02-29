@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :tracker_comment do
     text "MyString"
-story nil
+    story nil
   end
-
 end

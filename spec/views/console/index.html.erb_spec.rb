@@ -2,10 +2,31 @@ require 'rails_helper'
 
 RSpec.describe "console/index.html.erb", type: :view do
   #Once the user is signed in
-    # show the user their username
-    # expect(page).to have_content('Jtest')
+    before do
+      OmniAuthMock::User.new.current_user
+    end
+
+    describe "User is signed in and goes to index view" do
+      before do
+        visit '/console'
+      end
+
+      # show the user their username
+      it "shows the user their username" do
+        expect(page).to have_content('Jtest Profile:')
+      end
+
+      # Add test to display email
+      it "shows the user their email address" do
+        expect(page).to have_content('email@email.com')
+      end
+
+      # Display First and last name
+      it "shows the user their email address" do
+        expect(page).to have_content('Welcome Joe Test')
+      end
+    end
     # Test to make sure that image is displaying the correct URL (Factory Girl)
-    # Add test to display email
 
   # Add test to make sure repository count is correct (Factory Girl)
   # Add test to make sure repositories are showing (Factory Girl)
