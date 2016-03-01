@@ -9,17 +9,6 @@ body {
 .jumbotron .container{
     height: 400px;
 }
-.navbar-inverse{
-    background-color: #27c667;
-    height: 60px;
-    margin-bottom: 0px;
-}
-.navbar-nav{
-    float: right;
-}
-nav.navbar.navbar-inverse.navbar-fixed-top a{
-    color: #fff;
-}
 .flash-content{
     max-width: 100%;
     margin-left: auto;
@@ -45,28 +34,6 @@ nav.navbar.navbar-inverse.navbar-fixed-top a{
     border-radius: 20px;
     opacity: .9;
     text-align: center;
-}
-.main-button{
-    color: #fff;
-    background-color: #27c667;
-    border-color: grey;
-    box-shadow: 2px 2px 2px grey;
-    font-size: 22px;
-    padding: 25px 50px;
-}
-.main-button:hover{
-    color: #000;
-    background-color: #1f9b51; 
-}
-.feature-img img{
-    max-width: 100%;
-}
-a.navbar-brand{
-    padding-top: 20px;
-}
-a.navbar-logo.pull-left{
-    padding-top: 5px;
-    padding-right: 10px;
 }
 h2.header-icons{
     text-align: center;

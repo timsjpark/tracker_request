@@ -15,6 +15,9 @@ class ConsoleController < ApplicationController
   def statistics
   end
 
+  def testing
+  end
+
   def info
     @repo = Repository.where(id: params[:id]).first
   end

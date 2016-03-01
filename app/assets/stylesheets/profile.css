@@ -10,10 +10,11 @@
     margin-right: 50px!important;
 }
 .btn-primary{
-    box-shadow: 2px 2px 2px grey; 
+    box-shadow: 2px 2px 2px grey;
 }
 .profile-form{
     margin-left: 10px;
+    padding-top: 40px;
 }
 i.fa.fa-check-circle{
     color: green;

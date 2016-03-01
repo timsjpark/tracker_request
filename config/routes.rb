@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'console' => 'console#index'
   get 'console/profile' => 'console#profile', :as => :profile
   get 'console/statistics'
+  get 'console/testing' => 'console#testing'
   get 'console/repo-count' => 'console#repo-count'
   get 'console/:id/info' => 'console#info', :as => :repo_info
   get 'console/:id/branch' => 'console#branch', :as => :branch
