@@ -1,0 +1,58 @@
+  <div class="wrapper">
+    <div class="box">
+          <div class="row row-offcanvas row-offcanvas-left">
+
+              <!-- sidebar -->
+              <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
+
+                    <ul class="nav">
+                        <li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                  </ul>
+
+                  <ul class="nav hidden-xs" id="lg-menu">
+                      <li class="active"><a href="#featured"><i class="glyphicon glyphicon-list-alt"></i> Stats</a></li>
+                      <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Github</a></li>
+                      <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Pivotal Tracker</a></li>
+                  </ul>
+                  <ul class="list-unstyled hidden-xs" id="sidebar-footer">
+                  </ul>
+
+                    <!-- tiny only nav-->
+                <ul class="nav visible-xs" id="xs-menu">
+                  <li><a href="#featured" class="text-center"><i class="glyphicon glyphicon-list-alt"></i></a></li>
+                  <li><a href="#stories" class="text-center"><i class="glyphicon glyphicon-list"></i></a></li>
+                  <li><a href="#" class="text-center"><i class="glyphicon glyphicon-paperclip"></i></a></li>
+                </ul>
+
+              </div>
+              <!-- /sidebar -->
+
+              <!-- main right col -->
+              <div class="column col-sm-10 col-xs-11" id="main">
+
+                  <!-- top nav -->
+                  <div class="navbar navbar-blue navbar-static-top">
+                      <div class="navbar-header">
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                          <span class="sr-only">Toggle</span>
+                          <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                          <%= link_to "Git Tracker", root_path, class: "navbar-brand" %>
+                      </div>
+                      <nav class="collapse navbar-collapse" role="navigation">
+                        <ul class="nav navbar-nav">
+                          <li><%= link_to raw("About <i class='fa fa-briefcase'></i>"), about_path %></li>
+                          <li><%= link_to raw("Contact <i class='fa fa-paper-plane'></i>"), contact_path %></li>
+                        <% if current_user %>
+                          <li><%= link_to raw("#{current_user.username.titleize} <i class='fa fa-user'></i>"), console_path %></li>
+                          <li><%= link_to raw("Profile <i class='fa fa-users'></i>"), "/console/profile" %></li>
+                          <li><%= link_to raw("Sign Out <i class='fa fa-sign-out'></i>"), logout_path, method: :delete %></li>
+                        <% else %>
+                          <li><%= link_to raw("Sign In <i class='fa fa-sign-in'></i>"), '/auth/github' %></li>
+                        <% end %>
+                        </ul>
+                      </nav>
+                  </div>
+                  <!-- /top nav -->

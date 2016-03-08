@@ -1,0 +1,26 @@
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+            <%= link_to "Git Tracker", root_path, class: "navbar-brand" %>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to raw("About <i class='fa fa-briefcase'></i>"), about_path %></li>
+          <li><%= link_to raw("Contact <i class='fa fa-paper-plane'></i>"), contact_path %></li>
+          <% if current_user %>
+            <li><%= link_to raw("#{current_user.username.titleize} <i class='fa fa-user'></i>"), console_path %></li>
+            <li><%= link_to raw("Profile <i class='fa fa-users'></i>"), "/console/profile" %></li>
+              <li><%= link_to raw("Sign Out <i class='fa fa-sign-out'></i>"), logout_path, method: :delete %></li>
+          <% else %>
+              <li><%= link_to raw("Sign In <i class='fa fa-sign-in'></i>"), '/auth/github' %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>

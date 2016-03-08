@@ -22,12 +22,12 @@ class ConsoleController < ApplicationController
     @repo = Repository.where(id: params[:id]).first
   end
 
-  def branch 
+  def branch
     @branch = Branch.where(id: params[:id]).first
     @branch_repo = Repository.where(id: "#{@branch.repository_id}").first
   end
 
-  def pull 
+  def pull
     @pull_request = PullRequest.where(id: params[:id]).first
     @branch = Repository.find("#{@pull_request.repository_id}").branches
     @pull_request_comments = PullRequestComment.where(repository_id: "#{@pull_request.repository_id}").find_each
@@ -42,7 +42,7 @@ class ConsoleController < ApplicationController
     @comments = TrackerComment.where(story_id: @story.id)
   end
 
-  private 
+  private
   def github_background_jobs
     Resque.enqueue(RepoImportWorker, current_user.id)
     Resque.enqueue(BranchImportWorker, current_user.id)
