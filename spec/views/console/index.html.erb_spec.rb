@@ -55,6 +55,15 @@ RSpec.describe "console/index.html.erb", type: :view do
       end
     end
 
+    describe "Projects" do
+    end
+
+    describe "Branches" do
+    end
+
+    describe "Pull Requests" do
+    end
+
   # Add test to make sure projects are showing (Factory Girl)
   # Add test to make sure projects count is correct (Factory Girl)
   # Add test to make sure branches are showing on the console (Factory Girl)
