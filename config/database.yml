@@ -24,4 +24,3 @@ production:
   adapter: postgresql
   database: tracker_request_production
   pool: 5
-  timeout: 5000
