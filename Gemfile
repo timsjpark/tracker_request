@@ -40,8 +40,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Puma as the app server
-gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -73,6 +71,8 @@ group :development do
 end
 
 group :production do
+  # Use Puma as the app server
+  gem 'puma'
   gem 'pg'
   gem 'rails_12factor'
 end

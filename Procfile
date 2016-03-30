@@ -1,4 +1,4 @@
-web: bundle exec rails server
+web: bundle exec puma -C config/puma.rb
 worker1: bundle exec rake resque:work TERM_CHILD=1 QUEUES=*
 worker2: bundle exec rake resque:work TERM_CHILD=1 QUEUES=*
 worker3: bundle exec rake resque:work TERM_CHILD=1 QUEUES=*
