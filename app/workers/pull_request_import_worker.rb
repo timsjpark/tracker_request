@@ -16,7 +16,7 @@ class PullRequestImportWorker
           pull_request.update(pull_request_params(pull_request_info,repo_info))
         end
       end
-      Resque.enqueue_in(70.seconds, PullRequestImportWorker, current_user_id)
+      #Resque.enqueue_in(70.seconds, PullRequestImportWorker, current_user_id)
     end
 
     def self.pull_request_params(pull_request_info,repo_info)

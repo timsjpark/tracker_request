@@ -23,7 +23,7 @@ class StoryImportWorker
       # end
     end
 
-    Resque.enqueue_in(85.seconds, StoryImportWorker, current_user_id)
+    #Resque.enqueue_in(85.seconds, StoryImportWorker, current_user_id)
   end
 
   def self.story_params(story_info,project_info)
