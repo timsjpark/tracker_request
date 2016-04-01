@@ -1,11 +1,7 @@
 
-if ENV['REDISTOGO_URL'].blank?
-  uri = '127.0.0.1:6379'
-  REDIS = uri
-else
+if Rails.env == 'production'
   uri = URI.parse(ENV["REDISTOGO_URL"])
-  REDIS = Redis.new(:url => uri)
+  Resque.redis = Redis.new(:url => uri)
 end
 
-Resque.redis = REDIS
 Dir["/app/app/jobs/*.rb"].each { |file| require file }
