@@ -4,6 +4,7 @@ gem 'bootstrap-generators'
 #Gem for Font Awesome to be included in the project
 gem 'font-awesome-sass', '~> 4.4.0'
 
+gem 'redis'
 gem 'resque', require: 'resque/server'
 gem 'resque-scheduler', '2.5.5', :require => 'resque_scheduler/server'
 
