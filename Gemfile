@@ -6,7 +6,7 @@ gem 'font-awesome-sass', '~> 4.4.0'
 
 gem 'redis'
 gem 'resque', require: 'resque/server'
-gem 'resque-scheduler', '2.5.5', :require => 'resque_scheduler/server'
+#gem 'resque-scheduler', '2.5.5', :require => 'resque_scheduler/server'
 
 ruby "2.2.3"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
