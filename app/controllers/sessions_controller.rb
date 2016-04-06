@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
   def omniauth_options
     if auth_hash = request.env['omniauth.auth']
       first_name, last_name = auth_hash[:info][:name].split(/\s+/, 2)
-      encryption = Encrypt_Decrypt.new
+      encryption = Client::Encrypt_Decrypt.new
       credentials = auth_hash[:credentials][:token]
       db_credentials = encryption.encrypt(credentials)
 

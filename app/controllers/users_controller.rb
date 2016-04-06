@@ -19,8 +19,13 @@ class UsersController < ApplicationController
   def user_params
     if params[:user]
       params.require(:user).permit(
-        :username, :first_name, :last_name, :email, :pivotal_api_key
-      )
+        :username, :first_name, :last_name, :email, :pivotal_api_key)
+
+    e = Client::Encrypt_Decrypt.new
+    encrypt_tracker_key = e.encrypt(params[:user][:pivotal_api_key])
+      {
+        pivotal_api_key: encrypt_tracker_key
+      }
     end
   end
 end
