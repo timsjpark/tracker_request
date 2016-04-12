@@ -22,8 +22,6 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
-  ENV['REDISTOGO_URL'] = 'redis://redistogo:4cd1e13c43a65bd818719288ab2f5330@lab.redistogo.com:9650/'
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
