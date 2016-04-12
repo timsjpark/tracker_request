@@ -2,8 +2,10 @@ class ConsoleController < ApplicationController
   before_filter :login_required
 
   def index
-    pivotal_background_jobs if current_user.pivotal_api_key.present?
-    github_background_jobs
+    if Rails.env == 'production'
+      pivotal_background_jobs if current_user.pivotal_api_key.present?
+      github_background_jobs
+    end
     @user = User.find(current_user.id)
     @repository = @user.repositories.where(user_id: current_user.id).first
   end
