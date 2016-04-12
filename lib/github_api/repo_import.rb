@@ -2,8 +2,7 @@ class GithubApi::RepoImport
 
   def initialize(current_user_id)
     @current_user = User.find(current_user_id)
-    @client = Client.new(@current_user)
-    @client_connect = @client.github_client
+    @client_connect = Client::Github.new(@current_user).connect
   end
 
   def repositories_to_db

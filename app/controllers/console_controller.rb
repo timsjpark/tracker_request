@@ -45,15 +45,15 @@ class ConsoleController < ApplicationController
 
   private
   def github_background_jobs
-    Resque.enqueue(RepoImportWorker, current_user.id)
-    Resque.enqueue(BranchImportWorker, current_user.id)
-    Resque.enqueue(PullRequestImportWorker, current_user.id)
-    Resque.enqueue(PullRequestCommentImportWorker, current_user.id)
+    RepoImportWorker.perform_now(current_user.id)
+    #Resque.enqueue(BranchImportWorker, current_user.id)
+    #Resque.enqueue(PullRequestImportWorker, current_user.id)
+    #Resque.enqueue(PullRequestCommentImportWorker, current_user.id)
   end
 
   def pivotal_background_jobs
-    Resque.enqueue(ProjectImportWorker, current_user.id)
-    Resque.enqueue(StoryImportWorker, current_user.id)
-    Resque.enqueue(TrackerCommentImportWorker, current_user.id)
+    #Resque.enqueue(ProjectImportWorker, current_user.id)
+    #Resque.enqueue(StoryImportWorker, current_user.id)
+    #Resque.enqueue(TrackerCommentImportWorker, current_user.id)
   end
 end
