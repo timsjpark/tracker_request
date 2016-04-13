@@ -2,7 +2,7 @@ class ConsoleController < ApplicationController
   before_filter :login_required
 
   def index
-    if Rails.env == 'production'
+    if Rails.env == 'production' || Rails.env == 'development'
       pivotal_background_jobs if current_user.pivotal_api_key.present?
       github_background_jobs
     end
@@ -48,14 +48,14 @@ class ConsoleController < ApplicationController
   private
   def github_background_jobs
     RepoImportWorker.perform_now(current_user.id)
-    #Resque.enqueue(BranchImportWorker, current_user.id)
-    #Resque.enqueue(PullRequestImportWorker, current_user.id)
-    #Resque.enqueue(PullRequestCommentImportWorker, current_user.id)
+    BranchImportWorker.perform_later(current_user.id)
+    PullRequestImportWorker.perform_later(current_user.id)
+    PullRequestCommentImportWorker.perform_later(current_user.id)
   end
 
   def pivotal_background_jobs
-    #Resque.enqueue(ProjectImportWorker, current_user.id)
-    #Resque.enqueue(StoryImportWorker, current_user.id)
-    #Resque.enqueue(TrackerCommentImportWorker, current_user.id)
+    ProjectImportWorker.perform_later(current_user.id)
+    StoryImportWorker.perform_later(current_user.id)
+    TrackerCommentImportWorker.perform_later(current_user.id)
   end
 end

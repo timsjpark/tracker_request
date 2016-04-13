@@ -26,3 +26,9 @@ Rails.application.routes.draw do
 
   get 'report_bug' => 'bugs#report_bug', as: 'report_bug'
 end
+
+
+
+
+
+

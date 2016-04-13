@@ -1,7 +1,7 @@
-class StoryImportWorker
-  @queue = :story_import_worker
+class StoryImportWorker < ActiveJob::Base
+  queue_as = :default
 
-  def self.perform(current_user_id)
+  def perform(current_user_id)
     PivotalApi::StoryImport.new(current_user_id).stories_to_db
   end
 end

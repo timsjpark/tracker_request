@@ -1,7 +1,7 @@
-class PullRequestImportWorker
-  @queue = :pull_request_import_worker
+class PullRequestImportWorker < ActiveJob::Base
+  queue_as = :default
 
-  def self.perform(current_user_id)
+  def perform(current_user_id)
     GithubApi::PullRequestImport.new(current_user_id).pull_requests_to_db
   end
 end

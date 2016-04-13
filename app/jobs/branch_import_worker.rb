@@ -1,7 +1,7 @@
-class BranchImportWorker
-  @queue = :branch_import_worker
+class BranchImportWorker < ActiveJob::Base
+  queue_as = :default
 
-  def self.perform(current_user_id)
+  def perform(current_user_id)
     GithubApi::BranchImport.new(current_user_id).branches_to_db
   end
 end

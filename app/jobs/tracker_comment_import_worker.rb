@@ -1,7 +1,7 @@
-class TrackerCommentImportWorker
-  @queue = :tracker_comment_import_worker
+class TrackerCommentImportWorker < ActiveJob::Base
+  queue_as = :default
 
-  def self.perform(current_user_id)
+  def perform(current_user_id)
     PivotalApi::StoryCommentImport.new(current_user_id).story_comments_to_db
   end
 end

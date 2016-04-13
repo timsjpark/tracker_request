@@ -6,6 +6,7 @@ gem 'font-awesome-sass', '~> 4.4.0'
 
 gem 'redis'
 gem 'sidekiq'
+gem 'sinatra', :require => nil
 
 ruby "2.2.3"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
