@@ -1,6 +1,6 @@
 == Track Git
 
-[![Build Status](https://travis-ci.org/mgm702/tracker_request.svg?branch=master)](https://travis-ci.org/mgm702/tracker_request)
+{<img src="https://travis-ci.org/mgm702/tracker_request.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/mgm702/tracker_request]
 
 
 ## This is an open source project that allows you to combine Pivotal Tracker and Github workflow all under one console.
