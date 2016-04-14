@@ -60,6 +60,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'quiet_assets'
   gem 'launchy'
+  gem 'looksee'
 end
 
 group :development do
