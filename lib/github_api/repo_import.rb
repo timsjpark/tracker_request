@@ -6,11 +6,15 @@ class GithubApi::RepoImport
   end
 
   def repositories_to_db
+    id_array = []
     @repo_info = @client_connect.repositories()
     @repo_info.each do |repo_info|
       repo = Repository.where(repo_github_ident: repo_info[:id]).first_or_initialize
       repo.update(repo_params(repo_info,@current_user.id))
+      id_array << repo_info.id
+      GithubApi::Database_Updater.new.update_database_to_match_api(@current_user, id_array, "repository")
     end
+
   end
 
   def repo_to_db(repo_id)
