@@ -12,9 +12,8 @@ class GithubApi::RepoImport
       repo = Repository.where(repo_github_ident: repo_info[:id]).first_or_initialize
       repo.update(repo_params(repo_info,@current_user.id))
       id_array << repo_info.id
-      GithubApi::Database_Updater.new.update_database_to_match_api(@current_user, id_array, "repository")
+      GithubApi::Database_Updater.new.update_database_to_match_api(model_call: "repository", api_ids: id_array, current_user: @current_user)
     end
-
   end
 
   def repo_to_db(repo_id)

@@ -15,10 +15,10 @@ class GithubApi::BranchImport
       @branch_info.each do |branch_info|
         branch = Branch.where(latest_commit_sha: branch_info[:commit][:sha], branch_name: branch_info[:name]).first_or_initialize
         branch.update(branch_params(branch_info,repo_info))
-        branch_api_array << branch_info[:commit][:sha]
+        branch_api_array << "#{branch_info[:name]} #{branch_info[:commit][:sha]}"
       end
     end
-    GithubApi::Database_Updater.new.update_database_to_match_api(@current_user, branch_api_array, "branch", repo_id_array)
+    GithubApi::Database_Updater.new.update_database_to_match_api(model_call: "branch", api_ids: branch_api_array, repo_ids: repo_id_array)
   end
 
   private
