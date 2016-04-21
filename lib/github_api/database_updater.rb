@@ -37,20 +37,18 @@ class GithubApi::Database_Updater
     repo_ids = []
     repositories.each {|x| repo_ids << x.repo_github_ident}
     Repository.where(repo_github_ident: repo_ids - api_ids).destroy_all
-    repo_ids.each {|x| puts x}
   end
 
   def branch_matcher(current_user, api_ids, repo_ids)
     branches = Branch.where(repository_id: repo_ids).select([:latest_commit_sha, :branch_name])
     branch_commit_sha = []
     branches.each {|x| branch_commit_sha << "#{x.branch_name} #{x.latest_commit_sha}"}
-    #Branch.where(id: branch_commit_sha - api_ids).destroy_all
-    branch_commit_sha.each {|x| puts x}
-    puts "=============="
-    api_ids.each {|x| puts x}
-    puts "Branch Model counts #{branch_commit_sha.count}"
-    puts "Branch API counts #{api_ids.count}"
-    puts "These are the branches that needs to be deleted #{branch_commit_sha - api_ids}"
+    branch_delete_array = branch_commit_sha - api_ids
+    branch_names = []
+    branch_commit_shas = []
+    branch_delete_array.each {|x| branch_names << x.split(/\s/).first}
+    branch_delete_array.each {|x| branch_commit_shas << x.split(/\s/).last}
+    Branch.where(branch_name: branch_names,latest_commit_sha: branch_commit_shas).destroy_all
   end
 
   def pull_request_matcher(current_user, api_ids, repo_ids)
@@ -64,11 +62,6 @@ class GithubApi::Database_Updater
     pull_request_comments = PullRequestComment.where(repository_id: repo_ids).select([:pr_comment_github_ident])
     pr_comment_github_array = []
     pull_request_comments.each {|x| pr_comment_github_array << x.pr_comment_github_ident }
-    pr_comment_github_array.each {|x| puts x}
-    puts "=========="
-    api_ids.each {|x| puts x}
-    puts "Branch Model counts #{pr_comment_github_array.count}"
-    puts "Branch API counts #{api_ids.count}"
-    puts "These are the branches that needs to be deleted #{pr_comment_github_array - api_ids}"
+    PullRequestComment.where(pr_comment_github_ident: pr_comment_github_array - api_ids).destroy_all
   end
 end
