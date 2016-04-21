@@ -1,14 +1,6 @@
 class GithubApi::Database_Updater
 
-  def initialize
-  end
-
   def update_database_to_match_api(args={})
-    args[:model_call] ||= nil
-    args[:api_ids] ||= nil
-    args[:current_user] ||= nil
-    args[:repo_ids] ||= nil
-
     case args[:model_call]
       when "repository"
         if args[:current_user] != nil
@@ -16,15 +8,15 @@ class GithubApi::Database_Updater
         end
       when "branch"
         if args[:repo_ids] != nil
-          branch_matcher(args[:current_user], args[:api_ids], args[:repo_ids])
+          branch_matcher(args[:api_ids], args[:repo_ids])
         end
       when "pull_request"
         if args[:repo_ids] != nil
-          pull_request_matcher(args[:current_user], args[:api_ids], args[:repo_ids])
+          pull_request_matcher(args[:api_ids], args[:repo_ids])
         end
       when "pull_request_comment"
         if args[:repo_ids] != nil
-          pull_request_comment_matcher(args[:current_user], args[:api_ids], args[:repo_ids])
+          pull_request_comment_matcher(args[:api_ids], args[:repo_ids])
         end
       else
         "Error finding database model!"
@@ -39,7 +31,7 @@ class GithubApi::Database_Updater
     Repository.where(repo_github_ident: repo_ids - api_ids).destroy_all
   end
 
-  def branch_matcher(current_user, api_ids, repo_ids)
+  def branch_matcher(api_ids, repo_ids)
     branches = Branch.where(repository_id: repo_ids).select([:latest_commit_sha, :branch_name])
     branch_commit_sha = []
     branches.each {|x| branch_commit_sha << "#{x.branch_name} #{x.latest_commit_sha}"}
@@ -51,14 +43,14 @@ class GithubApi::Database_Updater
     Branch.where(branch_name: branch_names,latest_commit_sha: branch_commit_shas).destroy_all
   end
 
-  def pull_request_matcher(current_user, api_ids, repo_ids)
+  def pull_request_matcher(api_ids, repo_ids)
     pull_requests = PullRequest.where(repository_id: repo_ids).select([:pr_github_ident])
     pr_github_array = []
     pull_requests.each {|x| pr_github_array << x.pr_github_ident}
     PullRequest.where(pr_github_ident: pr_github_array - api_ids).destroy_all
   end
 
-  def pull_request_comment_matcher(current_user, api_ids, repo_ids)
+  def pull_request_comment_matcher(api_ids, repo_ids)
     pull_request_comments = PullRequestComment.where(repository_id: repo_ids).select([:pr_comment_github_ident])
     pr_comment_github_array = []
     pull_request_comments.each {|x| pr_comment_github_array << x.pr_comment_github_ident }
