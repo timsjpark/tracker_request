@@ -31,7 +31,6 @@ class GithubApi::RepoImport
       repo_full_name: repo_info[:full_name],
       number_of_forks: repo_info[:forks],
       forked: repo_info[:fork],
-      parent_repo: parent_repo,
       user_id: current_user_id
     }
   end

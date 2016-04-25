@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "home/index.html.erb", type: :view do
+  include Capybara::DSL
 
   before do
     visit '/'

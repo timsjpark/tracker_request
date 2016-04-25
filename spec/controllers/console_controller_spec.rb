@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ConsoleController, type: :controller do
+  include Capybara::DSL
 
   describe "User is not logged in and tries to acces the console" do
 

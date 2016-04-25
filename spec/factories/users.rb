@@ -6,6 +6,6 @@ FactoryGirl.define do
     last_name "Test"
     email "email@email.com"
     avatar_url "jtest.jpg"
-    github_api_key Client::Encrypt_Decrypt.new.encrypt(112312413)
+    github_api_key Client::Encrypt_Decrypt.new.encrypt(ENV['TESTING_API'])
   end
 end
